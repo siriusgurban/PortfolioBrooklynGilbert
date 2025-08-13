@@ -1,0 +1,113 @@
+@use "../variables" as *;
+
+main {
+    
+  .about {
+    .container {
+      .aboutContent {
+        display: flex;
+        justify-content: space-between;
+        padding: 112px;
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0px 36px 105px 0px rgba(43, 56, 76, 0.1);
+        background: rgba(255, 255, 255, 1);
+
+        .aboutLeft {
+          max-width: 424px;
+          position: relative;
+          img {
+            width: 100%;
+          }
+          .aboutSocial {
+            padding: 12px;
+            background-color: $white;
+            border-radius: 4px;
+            position: absolute;
+            bottom: -24px;
+            left: 93px;
+            box-shadow: 0px 12px 64px 0px rgba(28, 25, 25, 0.12);
+            background-color: rgba(255, 255, 255, 1);
+            display: flex;
+            li {
+              width: 48px;
+              height: 48px;
+              transition: all 0.3s ease;
+
+              &:hover {
+                filter: invert(10%);
+                transition: all 0.3s ease;
+              }
+            }
+          }
+        }
+
+        .aboutRight {
+          max-width: 536px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          gap: 32px;
+          .aboutTitle {
+            font-size: 38px;
+            font-weight: 400;
+            line-height: 50px;
+            color: $blackLighter;
+          }
+
+          .aboutText {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 24px;
+            color: $grayLight;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+          }
+
+          .aboutBtn {
+            display: flex;
+            gap: 16px;
+
+            a {
+              &:first-child {
+                display: inline-block;
+                padding: 12px 24px;
+                border-radius: 4px;
+                background-color: $purple;
+                border: 1px solid $purple;
+                color: $white;
+                cursor: pointer;
+                transition: all 0.3s ease;
+              }
+
+              &:first-child:hover {
+                background-color: $white;
+                color: $purple;
+                transition: all 0.3s ease;
+              }
+
+              &:last-child {
+                display: inline-block;
+                padding: 12px 24px;
+                border-radius: 4px;
+                background-color: $white;
+                color: $purple;
+                cursor: pointer;
+                border: 1px solid $purple;
+                transition: all 0.3s ease;
+              }
+
+              &:last-child:hover {
+                background-color: $purple;
+                color: $white;
+                transition: all 0.3s ease;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

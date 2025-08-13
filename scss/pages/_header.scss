@@ -1,0 +1,48 @@
+@use "../variables" as *;
+
+.container {
+  .headerNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 96px;
+    background-color: $white;
+    .headerLogo {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      cursor: pointer;
+      img {
+        width: 56px;
+        height: 56px;
+      }
+      span {
+        color: $blackLighter;
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 40px;
+      }
+    }
+  }
+
+  .nav {
+    .navList {
+      display: flex;
+      .navItem {
+        padding: 12px 24px;
+        a {
+          cursor: pointer;
+          color: $blackLight;
+        }
+
+        &:last-child {
+          border-radius: 4px;
+          background-color: $purple;
+          a {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}

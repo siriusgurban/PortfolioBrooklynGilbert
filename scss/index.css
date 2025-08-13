@@ -1,0 +1,447 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Work Sans", sans-serif;
+}
+
+.container {
+  width: 68.75%;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.container .headerNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 96px;
+  background-color: #ffffff;
+}
+.container .headerNav .headerLogo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  cursor: pointer;
+}
+.container .headerNav .headerLogo img {
+  width: 56px;
+  height: 56px;
+}
+.container .headerNav .headerLogo span {
+  color: rgb(19, 34, 56);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+}
+.container .nav .navList {
+  display: flex;
+}
+.container .nav .navList .navItem {
+  padding: 12px 24px;
+}
+.container .nav .navList .navItem a {
+  cursor: pointer;
+  color: rgb(51, 51, 51);
+}
+.container .nav .navList .navItem:last-child {
+  border-radius: 4px;
+  background-color: #8431cc;
+}
+.container .nav .navList .navItem:last-child a {
+  color: #ffffff;
+}
+
+main .hero {
+  padding-top: 126px;
+  padding-bottom: 222px;
+}
+main .hero .heroContent {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+main .hero .heroContent .heroLeft {
+  max-width: 648px;
+  gap: 142px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main .hero .heroContent .heroLeft .heroLeftContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+main .hero .heroContent .heroLeft .heroLeftContent .heroTitle {
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 84px;
+  color: rgb(19, 34, 56);
+}
+main .hero .heroContent .heroLeft .heroLeftContent .heroDesc {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgb(51, 51, 51);
+}
+main .hero .heroContent .heroLeft .heroLeftContent .heroBtn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 4px;
+  background-color: #8431cc;
+  color: #ffffff;
+  cursor: pointer;
+}
+main .hero .heroContent .heroLeft .heroLeftContent .heroBtn:hover {
+  background-color: #a53dff;
+}
+main .hero .heroContent .heroLeft .heroStats {
+  display: flex;
+  justify-content: space-between;
+  gap: 2px;
+}
+main .hero .heroContent .heroLeft .heroStats .heroStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(237, 216, 255, 0.5);
+  padding: 17px 0;
+  width: 100%;
+  border-radius: 4px;
+}
+main .hero .heroContent .heroLeft .heroStats .heroStat h4 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  color: #424e60;
+}
+main .hero .heroContent .heroLeft .heroStats .heroStat span {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgb(105, 116, 132);
+}
+main .hero .heroContent .heroRight {
+  max-width: 536px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+main .hero .heroContent .heroRight img {
+  width: 536px;
+}
+
+main .about .container .aboutContent {
+  display: flex;
+  justify-content: space-between;
+  padding: 112px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0px 36px 105px 0px rgba(43, 56, 76, 0.1);
+  background: rgb(255, 255, 255);
+}
+main .about .container .aboutContent .aboutLeft {
+  max-width: 424px;
+  position: relative;
+}
+main .about .container .aboutContent .aboutLeft img {
+  width: 100%;
+}
+main .about .container .aboutContent .aboutLeft .aboutSocial {
+  padding: 12px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  position: absolute;
+  bottom: -24px;
+  left: 93px;
+  box-shadow: 0px 12px 64px 0px rgba(28, 25, 25, 0.12);
+  background-color: rgb(255, 255, 255);
+  display: flex;
+}
+main .about .container .aboutContent .aboutLeft .aboutSocial li {
+  width: 48px;
+  height: 48px;
+  transition: all 0.3s ease;
+}
+main .about .container .aboutContent .aboutLeft .aboutSocial li:hover {
+  filter: invert(10%);
+  transition: all 0.3s ease;
+}
+main .about .container .aboutContent .aboutRight {
+  max-width: 536px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+}
+main .about .container .aboutContent .aboutRight .aboutTitle {
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 50px;
+  color: rgb(19, 34, 56);
+}
+main .about .container .aboutContent .aboutRight .aboutText {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #424e60;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+main .about .container .aboutContent .aboutRight .aboutBtn {
+  display: flex;
+  gap: 16px;
+}
+main .about .container .aboutContent .aboutRight .aboutBtn a:first-child {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 4px;
+  background-color: #8431cc;
+  border: 1px solid #8431cc;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+main .about .container .aboutContent .aboutRight .aboutBtn a:first-child:hover {
+  background-color: #ffffff;
+  color: #8431cc;
+  transition: all 0.3s ease;
+}
+main .about .container .aboutContent .aboutRight .aboutBtn a:last-child {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #8431cc;
+  cursor: pointer;
+  border: 1px solid #8431cc;
+  transition: all 0.3s ease;
+}
+main .about .container .aboutContent .aboutRight .aboutBtn a:last-child:hover {
+  background-color: #8431cc;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+main .process {
+  padding: 140px 0;
+  background-color: rgb(240, 241, 243);
+}
+main .process .container .processContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .process .container .processContent .processLeft {
+  max-width: 529px;
+  width: 100%;
+}
+main .process .container .processContent .processLeft .processTitle {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 56px;
+  margin-bottom: 24px;
+  color: rgb(19, 34, 56);
+}
+main .process .container .processContent .processLeft .processDesc {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 16px;
+  color: #424e60;
+}
+main .process .container .processContent .processLeft p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #424e60;
+}
+main .process .container .processContent .processRight {
+  max-width: 648px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px;
+}
+main .process .container .processContent .processRight .processItem {
+  max-width: 312px;
+  height: 276px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 32px 32px 124px 0px rgba(43, 56, 76, 0.1);
+}
+main .process .container .processContent .processRight .processItem:hover .processImage {
+  background-color: #8431cc;
+  transition: all 0.3s ease;
+}
+main .process .container .processContent .processRight .processItem .processImage {
+  width: 72px;
+  height: 72px;
+  background-color: rgba(237, 216, 255, 0.5);
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .process .container .processContent .processRight .processItem .processImage img {
+  width: 32px;
+  height: 32px;
+}
+main .process .container .processContent .processRight .processItem div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+main .process .container .processContent .processRight .processItem div h5 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+}
+main .process .container .processContent .processRight .processItem div p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+main .portfolio {
+  padding: 100px 0;
+}
+main .portfolio .container .portfolioHeader {
+  text-align: center;
+  max-width: 577px;
+  margin: 0 auto 70px auto;
+}
+main .portfolio .container .portfolioHeader .portfolioTitle {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 56px;
+  color: rgb(19, 34, 56);
+  margin-bottom: 24px;
+}
+main .portfolio .container .portfolioHeader .portfolioDesc {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #424e60;
+}
+main .portfolio .container .portfolioContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+main .portfolio .container .portfolioContent .portfolioCard {
+  max-width: 424px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0px 12px 64px 0px rgba(28, 25, 25, 0.12);
+  border: 1px solid rgb(230, 232, 235);
+  margin-bottom: 24px;
+}
+main .portfolio .container .portfolioContent .portfolioCard img {
+  width: 100%;
+  height: 240px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo {
+  padding: 32px;
+}
+main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo .cardSubtitle {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: rgb(135, 144, 157);
+  margin-bottom: 4px;
+}
+main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo .cardTitle {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgb(19, 34, 56);
+  margin-bottom: 16px;
+}
+main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo .cardDesc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgb(85, 96, 112);
+  margin-bottom: 16px;
+}
+main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo .cardBtn a {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #a53dff;
+  border-radius: 4px;
+  border: 1px solid #a53dff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo .cardBtn a:hover {
+  background-color: #8431cc;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+main .idea {
+  background-color: rgb(19, 34, 56);
+  padding: 100px 0;
+}
+main .idea .ideaHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+main .idea .ideaHeader .ideaTitle {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 56px;
+  color: #ffffff;
+}
+main .idea .ideaHeader .ideaDesc {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgb(165, 172, 181);
+}
+main .idea .ideaHeader .ideaBtn a {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #ffffff;
+  background-color: #8431cc;
+  transition: all 0.3s ease;
+}
+main .idea .ideaHeader .ideaBtn a:hover {
+  background-color: #a53dff;
+  transition: all 0.3s ease;
+}/*# sourceMappingURL=index.css.map */
