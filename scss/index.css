@@ -444,4 +444,59 @@ main .idea .ideaHeader .ideaBtn a {
 main .idea .ideaHeader .ideaBtn a:hover {
   background-color: #a53dff;
   transition: all 0.3s ease;
+}
+
+main .blog {
+  padding: 100px 0;
+}
+main .blog .container .blogHeader {
+  max-width: 540px;
+  margin: 0 auto 70px auto;
+  text-align: center;
+}
+main .blog .container .blogHeader .blogTitle {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 56px;
+  color: rgb(19, 34, 56);
+  margin-bottom: 24px;
+}
+main .blog .container .blogHeader .blogDesc {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  color: rgb(135, 144, 157);
+}
+main .blog .container .blogContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+main .blog .container .blogContent .blogCard {
+  max-width: 312px;
+  border: 1px solid rgb(240, 241, 243);
+  border-radius: 8px;
+  box-shadow: 0px 12px 64px 0px rgba(28, 25, 25, 0.12);
+}
+main .blog .container .blogContent .blogCard img {
+  width: 100%;
+  height: 226px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .blog .container .blogContent .blogCard .blogCardInfo {
+  padding: 24px;
+}
+main .blog .container .blogContent .blogCard .blogCardInfo .cardInfo {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgb(135, 144, 157);
+  margin-bottom: 12px;
+}
+main .blog .container .blogContent .blogCard .blogCardInfo .cardTitle {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  color: rgb(51, 51, 51);
 }/*# sourceMappingURL=index.css.map */

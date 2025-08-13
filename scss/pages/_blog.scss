@@ -1,0 +1,61 @@
+@use "../variables" as *;
+
+main {
+  .blog {
+    padding: 100px 0;
+    .container {
+      .blogHeader {
+        max-width: 540px;
+        margin: 0 auto 70px auto;
+        text-align: center;
+        .blogTitle {
+          font-size: 48px;
+          font-weight: 400;
+          line-height: 56px;
+          color: $blackLighter;
+          margin-bottom: 24px;
+        }
+        .blogDesc {
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 26px;
+          color: $grayProcessLighter;
+        }
+      }
+
+      .blogContent {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .blogCard {
+          max-width: 312px;
+          border: 1px solid $grayProcess;
+          border-radius: 8px;
+          box-shadow: 0px 12px 64px 0px rgba(28, 25, 25, 0.12);
+          img {
+            width: 100%;
+            height: 226px;
+            object-fit: cover;
+          }
+
+          .blogCardInfo {
+            padding: 24px;
+            .cardInfo {
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 20px;
+              color: $grayProcessLighter;
+              margin-bottom: 12px;
+            }
+            .cardTitle {
+              font-size: 18px;
+              font-weight: 500;
+              line-height: 24px;
+              color: $blackLight;
+            }
+          }
+        }
+      }
+    }
+  }
+}
