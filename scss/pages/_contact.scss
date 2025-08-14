@@ -1,0 +1,185 @@
+@use "../variables" as *;
+
+main {
+  .contact {
+    .container {
+      .contactContent {
+        display: flex;
+        justify-content: space-between;
+        padding: 88px;
+        border-radius: 15px;
+        box-shadow: 0px 59px 124px 0px rgba(0, 0, 0, 0.12);
+        .contactLeft {
+          max-width: 480px;
+          .contactTitle {
+            font-size: 38px;
+            font-weight: 500;
+            line-height: 50px;
+            color: $blue;
+            margin-bottom: 16px;
+          }
+          .contactDesc {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 24px;
+            color: $grayProcessLighter;
+            margin-bottom: 35px;
+          }
+
+          .contactBox {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            .contactCard {
+              display: flex;
+              align-items: center;
+              max-width: 336px;
+              padding: 24px;
+              border-radius: 10px;
+              gap: 13px;
+              .contactImage {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 48px;
+                height: 48px;
+                background-color: $grayProcessLight;
+                border-radius: 10px;
+                transition: all 0.3s ease;
+                i {
+                  font-size: 24px;
+                  color: $purupleLight;
+                }
+              }
+
+              .contactInfo {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                span {
+                  &:first-child {
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 20px;
+                    color: $grayContact;
+                  }
+                  &:last-child {
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 24px;
+                    color: $blue;
+                  }
+                }
+              }
+
+              &:hover {
+                box-shadow: 0px 12px 64px 0px rgba(28, 25, 25, 0.12);
+                transition: all 0.3s ease;
+
+                .contactImage {
+                  background-color: $purupleLight;
+                  i {
+                    color: $white;
+                  }
+                }
+              }
+            }
+
+            .aboutSocial {
+              padding: 12px;
+              background-color: $white;
+              border-radius: 4px;
+           
+              box-shadow: 0px 12px 64px 0px rgba(28, 25, 25, 0.12);
+              background-color: rgba(255, 255, 255, 1);
+              display: flex;
+              li {
+                width: 48px;
+                height: 48px;
+                transition: all 0.3s ease;
+
+                &:hover {
+                  filter: invert(10%);
+                  transition: all 0.3s ease;
+                }
+              }
+            }
+          }
+        }
+
+        .contactRight {
+          max-width: 560px;
+          p {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 24px;
+            color: $grayProcessLighter;
+            margin-bottom: 50px;
+          }
+
+          form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            input {
+              width: 100%;
+              outline: 0;
+              border-left: none;
+              border-top: none;
+              border-right: none;
+              border-bottom: 1px solid $grayProcessLighter;
+              padding-bottom: 14px;
+              &:focus {
+                border-bottom: 1px solid $purple;
+              }
+              &:focus::placeholder {
+                color: $purple;
+              }
+            }
+
+            div {
+              display: flex;
+              justify-content: space-between;
+              gap: 24px;
+            }
+
+            textarea {
+              width: 100%;
+              outline: 0;
+              border-left: none;
+              border-top: none;
+              border-right: none;
+              border-bottom: 1px solid $grayProcessLighter;
+              resize: none;
+              &:focus {
+                border-bottom: 1px solid $purple;
+              }
+              &:focus::placeholder {
+                color: $purple;
+              }
+            }
+
+            button {
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 24px;
+              padding: 12px 24px;
+              border-radius: 4px;
+              background-color: $purple;
+              border: 1px solid $purple;
+              color: $white;
+              cursor: pointer;
+              transition: all 0.3s ease;
+
+              &:hover {
+                background-color: $white;
+                color: $purple;
+                transition: all 0.3s ease;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
