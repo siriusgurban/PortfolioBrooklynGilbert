@@ -20,6 +20,12 @@
   height: 100%;
 }
 
+@media (max-width: 1440px) {
+  .container {
+    width: 94%;
+    max-width: 1320px;
+  }
+}
 .container .headerNav {
   display: flex;
   justify-content: space-between;
@@ -62,6 +68,7 @@
 }
 
 main .hero {
+  background: linear-gradient(181.93deg, rgba(255, 234, 198, 0.2), rgba(255, 234, 198, 0.14) 100%, rgba(255, 234, 198, 0.13) 100%);
   padding-top: 126px;
   padding-bottom: 222px;
 }
@@ -96,6 +103,7 @@ main .hero .heroContent .heroLeft .heroLeftContent .heroDesc {
   color: rgb(51, 51, 51);
 }
 main .hero .heroContent .heroLeft .heroLeftContent .heroBtn {
+  width: 20%;
   display: inline-block;
   padding: 12px 24px;
   border-radius: 4px;
@@ -143,6 +151,10 @@ main .hero .heroContent .heroRight img {
   width: 536px;
 }
 
+main .about {
+  position: relative;
+  top: 112px;
+}
 main .about .container .aboutContent {
   display: flex;
   justify-content: space-between;
@@ -237,7 +249,7 @@ main .about .container .aboutContent .aboutRight .aboutBtn a:last-child:hover {
 }
 
 main .process {
-  padding: 140px 0;
+  padding: 252px 0 140px 0;
   background-color: rgb(240, 241, 243);
 }
 main .process .container .processContent {
@@ -472,6 +484,7 @@ main .idea .ideaHeader .ideaBtn a:hover {
 
 main .blog {
   padding: 100px 0;
+  background: linear-gradient(181.93deg, rgba(255, 234, 198, 0.2), rgba(255, 234, 198, 0.14) 100%, rgba(255, 234, 198, 0.13) 100%);
 }
 main .blog .container .blogHeader {
   max-width: 540px;
@@ -694,12 +707,17 @@ main .testimonial .container .testimonialContent .testimonialCard .cardCompany {
   color: rgb(0, 0, 0);
 }
 
+main .contact {
+  position: relative;
+  top: 60px;
+}
 main .contact .container .contactContent {
   display: flex;
   justify-content: space-between;
   padding: 88px;
   border-radius: 15px;
   box-shadow: 0px 59px 124px 0px rgba(0, 0, 0, 0.12);
+  background-color: #ffffff;
 }
 main .contact .container .contactContent .contactLeft {
   max-width: 480px;
@@ -773,6 +791,7 @@ main .contact .container .contactContent .contactLeft .contactBox .contactCard:h
   color: #ffffff;
 }
 main .contact .container .contactContent .contactLeft .contactBox .aboutSocial {
+  width: 55%;
   padding: 12px;
   background-color: #ffffff;
   border-radius: 4px;
@@ -846,6 +865,7 @@ main .contact .container .contactContent .contactRight form textarea:focus::plac
   color: #8431cc;
 }
 main .contact .container .contactContent .contactRight form button {
+  width: 20%;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -861,4 +881,43 @@ main .contact .container .contactContent .contactRight form button:hover {
   background-color: #ffffff;
   color: #8431cc;
   transition: all 0.3s ease;
+}
+
+.footer {
+  padding: 192px 0 82px 0;
+  background-color: rgb(43, 56, 76);
+}
+.footer .container .footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 96px;
+}
+.footer .container .footerContent .footerLogo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  cursor: pointer;
+}
+.footer .container .footerContent .footerLogo img {
+  width: 56px;
+  height: 56px;
+}
+.footer .container .footerContent .footerLogo span {
+  color: rgb(255, 255, 255);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+}
+.footer .container .footerContent .nav .navList .navItem a {
+  color: rgb(240, 241, 243);
+}
+.footer .container .footerContent .nav .navList .navItem:last-child {
+  background-color: transparent;
+}
+.footer .container .footerContent .copyright {
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
 }/*# sourceMappingURL=index.css.map */

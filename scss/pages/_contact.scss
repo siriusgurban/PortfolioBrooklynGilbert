@@ -2,6 +2,8 @@
 
 main {
   .contact {
+    position: relative;
+    top: 60px;
     .container {
       .contactContent {
         display: flex;
@@ -9,6 +11,7 @@ main {
         padding: 88px;
         border-radius: 15px;
         box-shadow: 0px 59px 124px 0px rgba(0, 0, 0, 0.12);
+        background-color: $white;
         .contactLeft {
           max-width: 480px;
           .contactTitle {
@@ -86,6 +89,8 @@ main {
             }
 
             .aboutSocial {
+                width: 55%;
+
               padding: 12px;
               background-color: $white;
               border-radius: 4px;
@@ -160,6 +165,7 @@ main {
             }
 
             button {
+                width: 20%; 
               font-size: 16px;
               font-weight: 400;
               line-height: 24px;

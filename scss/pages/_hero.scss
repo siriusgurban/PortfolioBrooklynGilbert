@@ -2,7 +2,7 @@
 
 main {
   .hero {
-    // height: 100vh;
+    background: linear-gradient(181.93deg, rgba(255, 234, 198, 0.2),rgba(255, 234, 198, 0.14) 100%,rgba(255, 234, 198, 0.13) 100%);
     padding-top: 126px;
     padding-bottom: 222px;
     .heroContent {
@@ -38,6 +38,7 @@ main {
           }
 
           .heroBtn {
+            width: 20%;
             display: inline-block;
             padding: 12px 24px;
             border-radius: 4px;

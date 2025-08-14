@@ -3,6 +3,8 @@
 main {
     
   .about {
+    position: relative;
+    top: 112px;
     .container {
       .aboutContent {
         display: flex;
