@@ -27,6 +27,7 @@ main {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        margin-bottom: 50px;
 
         .portfolioCard {
           max-width: 424px;
@@ -88,6 +89,28 @@ main {
                 }
               }
             }
+          }
+        }
+      }
+
+      .portfolioBtn {
+        display: flex;
+        justify-content: center;
+
+        a {
+          display: inline-block;
+          padding: 12px 24px;
+          border-radius: 4px;
+          background-color: $purple;
+          border: 1px solid $purple;
+          color: $white;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: $white;
+            color: $purple;
+            transition: all 0.3s ease;
           }
         }
       }

@@ -348,6 +348,7 @@ main .portfolio .container .portfolioContent {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 50px;
 }
 main .portfolio .container .portfolioContent .portfolioCard {
   max-width: 424px;
@@ -403,6 +404,25 @@ main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo .
 main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo .cardBtn a:hover {
   background-color: #8431cc;
   color: #ffffff;
+  transition: all 0.3s ease;
+}
+main .portfolio .container .portfolioBtn {
+  display: flex;
+  justify-content: center;
+}
+main .portfolio .container .portfolioBtn a {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 4px;
+  background-color: #8431cc;
+  border: 1px solid #8431cc;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+main .portfolio .container .portfolioBtn a:hover {
+  background-color: #ffffff;
+  color: #8431cc;
   transition: all 0.3s ease;
 }
 
@@ -499,4 +519,88 @@ main .blog .container .blogContent .blogCard .blogCardInfo .cardTitle {
   font-weight: 500;
   line-height: 24px;
   color: rgb(51, 51, 51);
+}
+
+main .services {
+  padding: 150px 0;
+  background-color: rgb(240, 241, 243);
+}
+main .services .container .servicesContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .services .container .servicesContent .servicesLeft {
+  max-width: 529px;
+}
+main .services .container .servicesContent .servicesLeft .servicesTitle {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 56px;
+  margin-bottom: 24px;
+  color: rgb(19, 34, 56);
+}
+main .services .container .servicesContent .servicesLeft .servicesDesc {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #424e60;
+  margin-bottom: 16px;
+}
+main .services .container .servicesContent .servicesLeft .servicesDesc + p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #424e60;
+  margin-bottom: 50px;
+}
+main .services .container .servicesContent .servicesLeft .servicesBtn {
+  display: flex;
+}
+main .services .container .servicesContent .servicesLeft .servicesBtn a {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 4px;
+  background-color: #8431cc;
+  border: 1px solid #8431cc;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+main .services .container .servicesContent .servicesLeft .servicesBtn a:hover {
+  background-color: #ffffff;
+  color: #8431cc;
+  transition: all 0.3s ease;
+}
+main .services .container .servicesContent .servicesRight {
+  max-width: 648px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+main .services .container .servicesContent .servicesRight .servicesCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: rgb(255, 255, 255);
+  padding: 32px;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  cursor: pointer;
+}
+main .services .container .servicesContent .servicesRight .servicesCard .cardTitle {
+  font-size: 24px;
+  font-weight: 500;
+}
+main .services .container .servicesContent .servicesRight .servicesCard .cardDesc {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgb(165, 172, 181);
+}
+main .services .container .servicesContent .servicesRight .servicesCard:hover {
+  transition: all 0.3s ease;
+  border-left: 5px solid #8431cc;
+  padding-left: 27px;
+  box-shadow: 0px 32px 96px 0px rgba(28, 25, 25, 0.16);
 }/*# sourceMappingURL=index.css.map */
