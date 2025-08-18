@@ -300,7 +300,7 @@ main .process .container .processContent .processRight {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 24px;
 }
 main .process .container .processContent .processRight .processItem {

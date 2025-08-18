@@ -104,8 +104,8 @@ heroSubmit.addEventListener("click", async (e) => {
 });
 
 function addData(col, object) {
-  const heroRef = ref(db, col);
-  push(heroRef, object);
+  const dataRef = ref(db, col);
+  push(dataRef, object);
 
   console.log("worked");
 }
@@ -168,3 +168,115 @@ async function aboutWrite() {
 aboutWrite();
 
 // -----------------------------------About-End--------------------------------------------
+// -----------------------------------Process-Start--------------------------------------------
+
+const processInput = document.querySelector("#processInput");
+const processTextareaOne = document.querySelector("#processTextareaOne");
+const processTextareaTwo = document.querySelector("#processTextareaTwo");
+const processSubmit = document.querySelector("#processSubmit");
+const processCardImage = document.querySelector("#processCardImage");
+const processCardInput = document.querySelector("#processCardInput");
+const processCardTextarea = document.querySelector("#processCardTextarea");
+const processCardImage1 = document.querySelector("#processCardImage1");
+const processCardInput1 = document.querySelector("#processCardInput1");
+const processCardTextarea1 = document.querySelector("#processCardTextarea1");
+const processCard = document.querySelector("#processCard");
+const deleteCardBtn = document.querySelector("#deleteCardBtn");
+
+processSubmit.addEventListener("click", async (e) => {
+  e.preventDefault();
+
+  let obj = {
+    title: processInput.value,
+    textOne: processTextareaOne.value,
+    textTwo: processTextareaTwo.value,
+  };
+
+  try {
+    setData("process/" + "left", obj);
+    await processWrite();
+    bootstrap.Toast.getOrCreateInstance(toastLiveExample).show();
+  } catch (error) {
+    console.log(error);
+  }
+
+  let objRight = {
+    img: processCardImage1.value,
+    title: processCardInput1.value,
+    text: processCardTextarea1.value,
+  };
+
+  console.log(objRight, "objRight");
+
+  try {
+    if (processCardImage1.value.trim().length == 0) {
+      return;
+    }
+    addData("process/" + "right",objRight);
+    await processWrite();
+    bootstrap.Toast.getOrCreateInstance(toastLiveExample).show();
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+async function processWrite() {
+  const dataLeft = await getData("process/" + "left");
+  processInput.value = dataLeft?.title;
+  processTextareaOne.value = dataLeft?.textOne;
+  processTextareaTwo.value = dataLeft?.textTwo;
+
+  const dataRight = await getData("process/right");
+
+  let data = convert(dataRight);
+  console.log(data, "data");
+  processCard.innerHTML = ""
+
+  data.forEach((item, index) => {
+    processCard.innerHTML += `<div class="card" style="width: 18rem" id="${item.id}">
+    <div><img
+                    src="${item.img}"
+                    width="50px"
+                    height="50px"
+                    alt="..."
+                    class="mx-auto"
+                  /><button class="btn btn-danger" onclick="deleteCard(${item.id})">Delete</button></div>
+
+
+                 
+                  <div class="card-body">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="processCardImage"
+                      placeholder="Enter your title"
+                      value="${item.img}"
+
+                    />
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="processCardInput"
+                      placeholder="Enter your title"
+                      value="${item.title}"
+
+                    />
+                    <textarea
+                      class="form-control"
+                      id="processCardTextarea"
+                      rows="3"
+                      placeholder="Enter your text"
+                    >${item.text}</textarea>
+                  </div>
+                </div>`;
+  });
+}
+
+async function deleteCard(id) {
+  await remove(ref(db, "process/right/" + id));
+  processWrite();
+}
+
+processWrite();
+
+// -----------------------------------Process-End--------------------------------------------

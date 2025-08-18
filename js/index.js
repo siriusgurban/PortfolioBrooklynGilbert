@@ -25,7 +25,7 @@ import { getData } from "./handlers.js";
 
 const heroLeftContent = document.querySelector(".heroLeftContent");
 
-async function heroInner() {
+async function heroWrite() {
   const data = await getData("hero");
   console.log(data, "Data");
 
@@ -35,7 +35,7 @@ async function heroInner() {
 `;
 }
 
-heroInner();
+heroWrite();
 
 const heroStatExperience = document.querySelector("#heroStatExperience");
 const heroStatProject = document.querySelector("#heroStatProject");
@@ -105,3 +105,29 @@ async function aboutWrite() {
 aboutWrite();
 
 // -----------------------------------About-End--------------------------------------------
+// -----------------------------------Process-Start--------------------------------------------
+
+const processTitle = document.querySelector(".processTitle");
+const processDesc = document.querySelector(".processDesc");
+const processDescSub = document.querySelector("#processDescSub");
+const processRight = document.querySelector(".processRight");
+
+async function processWrite() {
+  const data = await getData("process/left");
+
+  processTitle.innerHTML = `${data?.title}`;
+  processDesc.innerHTML = `${data?.textOne}`;
+  processDescSub.innerHTML = `${data?.textTwo}`;
+
+    const dataRight = await getData("process/right");
+
+}
+
+processWrite();
+
+
+
+
+
+
+// -----------------------------------Process-End--------------------------------------------
