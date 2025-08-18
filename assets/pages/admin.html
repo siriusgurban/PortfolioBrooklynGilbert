@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-primary">
+    <!-- Toasty -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div
+        id="liveToast"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <i class="fa-solid fa-message text-warning me-2"></i>
+
+          <strong class="me-auto">Message</strong>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body">Your message is changed!</div>
+      </div>
+    </div>
+    <!-- Toasty -->
+
+    <main>
+      <div class="container mt-5">
+        <div class="row gap-5">
+          <h1 class="text-center">Admin Panel</h1>
+
+          <section class="border rounded pt-2 pb-3">
+            <form>
+              <h2 class="text-light">Hero</h2>
+              <div class="mb-3">
+                <label for="heroInput" class="form-label"
+                  >Enter your title</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="heroInput"
+                  placeholder="Enter your title"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="heroTextarea" class="form-label"
+                  >Enter your text</label
+                >
+                <textarea
+                  class="form-control"
+                  id="heroTextarea"
+                  rows="3"
+                  placeholder="Enter your text"
+                ></textarea>
+              </div>
+              <div class="d-flex">
+                <button
+                  type="submit"
+                  id="heroSubmit"
+                  class="btn btn-warning w-25 p-2 mx-auto justify-content-center"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <section class="border rounded pt-1 pb-1">
+            <form>
+              <h2 class="text-light">About</h2>
+              <div class="mb-3">
+                <label for="aboutInput" class="form-label"
+                  >Enter your title</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="aboutInput"
+                  placeholder="Enter your title"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="aboutTextareaOne" class="form-label"
+                  >Enter your first text</label
+                >
+                <textarea
+                  class="form-control"
+                  id="aboutTextareaOne"
+                  rows="3"
+                  placeholder="Enter your text"
+                ></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="aboutTextareaTwo" class="form-label"
+                  >Enter your second text</label
+                >
+                <textarea
+                  class="form-control"
+                  id="aboutTextareaTwo"
+                  rows="3"
+                  placeholder="Enter your text"
+                ></textarea>
+              </div>
+              <div class="d-flex">
+                <button
+                  type="submit"
+                  id="aboutSubmit"
+                  class="btn btn-warning w-25 p-2 mx-auto justify-content-center"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+      integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/7d39f0a187.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="../../js/admin.js"></script>
+  </body>
+</html>

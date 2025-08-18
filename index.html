@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./scss/index.css" />
     <title>Portfolio</title>
   </head>
-  <body>
+  <body style="background-color: dimgrey;">
     <header class="header">
       <div class="container">
         <div class="headerNav">
@@ -21,13 +21,14 @@
           </a>
           <nav class="nav">
             <ul class="navList">
-              <li class="navItem"><a href="#">Home</a></li>
-              <li class="navItem"><a href="#">About</a></li>
-              <li class="navItem"><a href="#">Process</a></li>
-              <li class="navItem"><a href="#">Portfolio</a></li>
-              <li class="navItem"><a href="#">Blog</a></li>
-              <li class="navItem"><a href="#">Services</a></li>
-              <li class="navItem"><a href="#">Contact</a></li>
+              <li class="navItem"><a href="#hero">Home</a></li>
+              <li class="navItem"><a href="#about">About</a></li>
+              <li class="navItem"><a href="#process">Process</a></li>
+              <li class="navItem"><a href="#portfolio">Portfolio</a></li>
+
+              <li class="navItem"><a href="#blog">Blog</a></li>
+              <li class="navItem"><a href="#services">Services</a></li>
+              <li class="navItem"><a href="#contact">Contact</a></li>
             </ul>
           </nav>
         </div>
@@ -39,27 +40,20 @@
           <div class="heroContent">
             <div class="heroLeft">
               <div class="heroLeftContent">
-                <h1 class="heroTitle">Hello, I’m Brooklyn Gilbert</h1>
-                <p class="heroDesc">
-                  I'm a Freelance UI/UX Designer and Developer based in London,
-                  England. I strives to build immersive and beautiful web
-                  applications through carefully crafted code and user-centric
-                  design.
-                </p>
                 <a href="./index.html#contact" class="heroBtn">Say Hello!</a>
               </div>
               <div class="heroStats">
-                <div class="heroStat">
-                  <h4>15 Y.</h4>
-                  <span>Experience</span>
+                <div class="heroStat" id="heroStatExperience">
+                  <h4></h4>
+                  <span></span>
                 </div>
-                <div class="heroStat">
-                  <h4>250+</h4>
-                  <span>Project Completed</span>
+                <div class="heroStat" id="heroStatProject">
+                  <h4></h4>
+                  <span></span>
                 </div>
-                <div class="heroStat">
-                  <h4>58</h4>
-                  <span>Happy Client</span>
+                <div class="heroStat" id="heroStatClient">
+                  <h4></h4>
+                  <span></span>
                 </div>
               </div>
             </div>
@@ -605,5 +599,6 @@
     src="https://kit.fontawesome.com/7d39f0a187.js"
     crossorigin="anonymous"
   ></script>
-  <script src="./js/index.js"></script>
+  <script type="module" src="./js/index.js"></script>
+
 </html>

@@ -33,6 +33,12 @@
         a {
           cursor: pointer;
           color: $blackLight;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $purple;
+            transition: color 0.3s ease;
+          }
         }
 
         &:last-child {
@@ -40,6 +46,11 @@
           background-color: $purple;
           a {
             color: $white;
+            transition: color 0.3s ease;
+            &:hover {
+              transition: color 0.3s ease;
+              color: $blackLight;
+            }
           }
         }
       }
