@@ -30,3 +30,20 @@ export function setData(col, obj) {
   const dataRef = ref(db, col);
   set(dataRef, obj);
 }
+
+export function convert(data) {
+  if (!data) {
+    return [];
+  }
+
+  let obj = Object.entries(data);
+  let ArrData = obj.map((i) => {
+    return [
+      {
+        id: i[0],
+        ...i[1],
+      },
+    ];
+  });
+  return ArrData.flat();
+}

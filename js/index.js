@@ -21,7 +21,7 @@ import {
   child,
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
-import { getData } from "./handlers.js";
+import { getData, convert } from "./handlers.js";
 
 const heroLeftContent = document.querySelector(".heroLeftContent");
 
@@ -32,7 +32,8 @@ async function heroWrite() {
   heroLeftContent.innerHTML = `
          <h1 class="heroTitle">${data.title}</h1>
             <p class="heroDesc">${data.text}</p>
-`;
+                <a href="./index.html#contact" class="heroBtn">Say Hello!</a>
+  `;
 }
 
 heroWrite();
@@ -119,15 +120,27 @@ async function processWrite() {
   processDesc.innerHTML = `${data?.textOne}`;
   processDescSub.innerHTML = `${data?.textTwo}`;
 
-    const dataRight = await getData("process/right");
+  const dataRight = await getData("process/right");
+  let convertedData = convert(dataRight);
 
+  console.log(convertedData, "dataRight");
+
+  convertedData.map((item, index) => {
+    processRight.innerHTML += `<div class="processItem">
+                <div class="processImage">
+                  <img src="./assets/image/process/notes.png" alt="notes" />
+                </div>
+                <div>
+                  <h5>${index + 1}. ${item.title}</h5>
+                  <p>
+                    ${item.text}
+                  </p>
+                </div>
+              </div>
+  `;
+  });
 }
 
 processWrite();
-
-
-
-
-
 
 // -----------------------------------Process-End--------------------------------------------

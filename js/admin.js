@@ -23,7 +23,7 @@ import {
   child,
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
-import { getData, setData } from "./handlers.js";
+import { getData, setData, convert } from "./handlers.js";
 
 // Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use
@@ -79,6 +79,7 @@ let porte = {
 // -----------------------------------Toasty-Start--------------------------------------------
 
 const toastLiveExample = document.getElementById("liveToast");
+const liveToastError = document.getElementById("liveToastError");
 
 // -----------------------------------Toasty-Start--------------------------------------------
 // -----------------------------------Hero-Start--------------------------------------------
@@ -108,19 +109,6 @@ function addData(col, object) {
   push(dataRef, object);
 
   console.log("worked");
-}
-
-function convert(data) {
-  let obj = Object.entries(data);
-  let ArrData = obj.map((i) => {
-    return [
-      {
-        id: i[0],
-        ...i[1],
-      },
-    ];
-  });
-  return ArrData.flat();
 }
 
 async function heroInner() {
@@ -183,6 +171,8 @@ const processCardTextarea1 = document.querySelector("#processCardTextarea1");
 const processCard = document.querySelector("#processCard");
 const deleteCardBtn = document.querySelector("#deleteCardBtn");
 
+const processEditBtn = document.querySelector("#processEditBtn");
+
 processSubmit.addEventListener("click", async (e) => {
   e.preventDefault();
 
@@ -201,7 +191,9 @@ processSubmit.addEventListener("click", async (e) => {
   }
 
   let objRight = {
-    img: processCardImage1.value,
+    img: processCardImage1.value
+      ? processCardImage1.value
+      : "./assets/image/process/notes.png",
     title: processCardInput1.value,
     text: processCardTextarea1.value,
   };
@@ -209,10 +201,13 @@ processSubmit.addEventListener("click", async (e) => {
   console.log(objRight, "objRight");
 
   try {
-    if (processCardImage1.value.trim().length == 0) {
-      return;
+    if (
+      processCardInput1.value.trim().length === 0 &&
+      processCardTextarea1.value.trim().length === 0
+    ) {
+      return bootstrap.Toast.getOrCreateInstance(liveToastError).show();
     }
-    addData("process/" + "right",objRight);
+    addData("process/" + "right", objRight);
     await processWrite();
     bootstrap.Toast.getOrCreateInstance(toastLiveExample).show();
   } catch (error) {
@@ -230,45 +225,30 @@ async function processWrite() {
 
   let data = convert(dataRight);
   console.log(data, "data");
-  processCard.innerHTML = ""
+  processCard.innerHTML = "";
 
-  data.forEach((item, index) => {
-    processCard.innerHTML += `<div class="card" style="width: 18rem" id="${item.id}">
-    <div><img
-                    src="${item.img}"
-                    width="50px"
-                    height="50px"
-                    alt="..."
-                    class="mx-auto"
-                  /><button class="btn btn-danger" onclick="deleteCard(${item.id})">Delete</button></div>
+  data.forEach((item) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.style.width = "18rem";
+    card.id = item.id;
 
+    card.innerHTML = `
+    <div>
+      <img src="${item.img ? item.img : "../image/process/notes.png"}" width="50" height="50" class="mx-auto" />
 
-                 
-                  <div class="card-body">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="processCardImage"
-                      placeholder="Enter your title"
-                      value="${item.img}"
+      <button class="btn btn-danger delete-btn">Delete</button>
+    </div>
+    <div class="card-body">
+      <input type="text" class="form-control processCardInput" value="${item.title}" />
+      <textarea class="form-control processCardTextarea">${item.text}</textarea>
+    </div>
+  `;
 
-                    />
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="processCardInput"
-                      placeholder="Enter your title"
-                      value="${item.title}"
-
-                    />
-                    <textarea
-                      class="form-control"
-                      id="processCardTextarea"
-                      rows="3"
-                      placeholder="Enter your text"
-                    >${item.text}</textarea>
-                  </div>
-                </div>`;
+    card
+      .querySelector(".delete-btn")
+      .addEventListener("click", () => deleteCard(item.id));
+    processCard.appendChild(card);
   });
 }
 
@@ -276,6 +256,22 @@ async function deleteCard(id) {
   await remove(ref(db, "process/right/" + id));
   processWrite();
 }
+
+// function inputProcessDisable() {
+//   const processFormInput = document.querySelectorAll("input");
+//   const processFormText = document.querySelectorAll("textarea");
+
+//   processFormInput.forEach((item) => {
+//     item.disabled ? (item.disabled = true) : (item.disabled = false);
+//   });
+//   processFormText.forEach((item) => {
+//     item.disabled ? (item.disabled = true) : (item.disabled = false);
+//   });
+// }
+
+// processEditBtn.addEventListener("click", () => {
+//   inputProcessDisable();
+// });
 
 processWrite();
 

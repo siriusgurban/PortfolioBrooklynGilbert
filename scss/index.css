@@ -304,7 +304,7 @@ main .process .container .processContent .processRight {
   gap: 24px;
 }
 main .process .container .processContent .processRight .processItem {
-  max-width: 312px;
+  width: 312px;
   height: 276px;
   display: flex;
   flex-direction: column;
