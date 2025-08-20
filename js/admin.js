@@ -208,6 +208,9 @@ processSubmit.addEventListener("click", async (e) => {
   }
 });
 
+
+
+
 async function processWrite() {
   const dataLeft = await getData("process/" + "left");
   processInput.value = dataLeft?.title;
@@ -231,9 +234,8 @@ async function processWrite() {
       <div class="d-flex justify-content-center"><img src="${item.img}" width="50" height="50" /></div>
 
       <div class="card-body">
-      <input type="text" class="form-control processCardImage" value="${item.img}" />
-      <input type="text" class="form-control processCardInput" value="${item.title}" />
-      <textarea class="form-control processCardTextarea">${item.text}</textarea>
+      <div class="form-control processCardInput">${item.title}</div>
+      <div class="form-control processCardTextarea">${item.text}</div>
       </div>
       <button class="btn btn-danger delete-btn w-50 mx-auto">Delete</button></div>
   `;
