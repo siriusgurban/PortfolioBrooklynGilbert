@@ -1,7 +1,7 @@
 import { firebaseConfig } from "./firebase.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 import { getDatabase } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
-import { ref, get, set   } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+import { ref, get, set, push   } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
 
 const app = initializeApp(firebaseConfig);
@@ -30,6 +30,12 @@ export function setData(col, obj) {
   const dataRef = ref(db, col);
   set(dataRef, obj);
 }
+
+export function addData(col, object) {
+  const dataRef = ref(db, col);
+  push(dataRef, object);
+}
+
 
 export function convert(data) {
   if (!data) {

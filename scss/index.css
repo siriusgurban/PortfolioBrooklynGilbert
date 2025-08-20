@@ -377,7 +377,7 @@ main .portfolio .container .portfolioContent {
   margin-bottom: 50px;
 }
 main .portfolio .container .portfolioContent .portfolioCard {
-  max-width: 424px;
+  width: 424px;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -404,6 +404,7 @@ main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo .
   line-height: 16px;
   color: rgb(135, 144, 157);
   margin-bottom: 4px;
+  text-transform: uppercase;
 }
 main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo .cardTitle {
   font-size: 18px;
@@ -440,8 +441,7 @@ main .portfolio .container .portfolioBtn {
   display: flex;
   justify-content: center;
 }
-main .portfolio .container .portfolioBtn a {
-  display: inline-block;
+main .portfolio .container .portfolioBtn div {
   padding: 12px 24px;
   border-radius: 4px;
   background-color: #8431cc;
@@ -450,7 +450,7 @@ main .portfolio .container .portfolioBtn a {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-main .portfolio .container .portfolioBtn a:hover {
+main .portfolio .container .portfolioBtn div:hover {
   background-color: #ffffff;
   color: #8431cc;
   transition: all 0.3s ease;

@@ -23,7 +23,7 @@ import {
   child,
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
-import { getData, setData, convert } from "./handlers.js";
+import { getData, setData, convert, addData } from "./handlers.js";
 
 // Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use
@@ -104,12 +104,6 @@ heroSubmit.addEventListener("click", async (e) => {
   }
 });
 
-function addData(col, object) {
-  const dataRef = ref(db, col);
-  push(dataRef, object);
-
-  console.log("worked");
-}
 
 async function heroInner() {
   const data = await getData("hero");
@@ -193,7 +187,7 @@ processSubmit.addEventListener("click", async (e) => {
   let objRight = {
     img: processCardImage1.value
       ? processCardImage1.value
-      : "./assets/image/process/notes.png",
+      : "https://img.freepik.com/premium-vector/business-analyst-icon-vector-image-can-be-used-diversity_120816-49197.jpg",
     title: processCardInput1.value,
     text: processCardTextarea1.value,
   };
@@ -229,20 +223,20 @@ async function processWrite() {
 
   data.forEach((item) => {
     const card = document.createElement("div");
-    card.className = "card";
+    card.className = "card pt-2 pb-2 d-flex flex-column ";
+
     card.style.width = "18rem";
     card.id = item.id;
 
     card.innerHTML = `
-    <div>
-      <img src="${item.img ? item.img : "../image/process/notes.png"}" width="50" height="50" class="mx-auto" />
+      <div class="d-flex justify-content-center"><img src="${item.img}" width="50" height="50" /></div>
 
-      <button class="btn btn-danger delete-btn">Delete</button>
-    </div>
-    <div class="card-body">
+      <div class="card-body">
+      <input type="text" class="form-control processCardImage" value="${item.img}" />
       <input type="text" class="form-control processCardInput" value="${item.title}" />
       <textarea class="form-control processCardTextarea">${item.text}</textarea>
-    </div>
+      </div>
+      <button class="btn btn-danger delete-btn w-50 mx-auto">Delete</button></div>
   `;
 
     card
@@ -257,22 +251,73 @@ async function deleteCard(id) {
   processWrite();
 }
 
-// function inputProcessDisable() {
-//   const processFormInput = document.querySelectorAll("input");
-//   const processFormText = document.querySelectorAll("textarea");
-
-//   processFormInput.forEach((item) => {
-//     item.disabled ? (item.disabled = true) : (item.disabled = false);
-//   });
-//   processFormText.forEach((item) => {
-//     item.disabled ? (item.disabled = true) : (item.disabled = false);
-//   });
-// }
-
-// processEditBtn.addEventListener("click", () => {
-//   inputProcessDisable();
-// });
-
 processWrite();
 
 // -----------------------------------Process-End--------------------------------------------
+// -----------------------------------Portfolio-Start--------------------------------------------
+
+const portfolioImage = document.querySelector("#portfolioImage");
+const portfolioSubInput = document.querySelector("#portfolioSubInput");
+const portfolioTitleInput = document.querySelector("#portfolioTitleInput");
+const portfolioTextarea = document.querySelector("#portfolioTextarea");
+const portfolioLinkInput = document.querySelector("#portfolioLinkInput");
+const portfolioSubmit = document.querySelector("#portfolioSubmit");
+
+portfolioSubmit.addEventListener("click", async (e) => {
+  e.preventDefault();
+
+  let obj = {
+    image: portfolioImage.value,
+    sub: portfolioSubInput.value,
+    title: portfolioTitleInput.value,
+    text: portfolioTextarea.value,
+    link: portfolioLinkInput.value,
+  };
+
+  try {
+    addData("portfolio/", obj);
+    // await portfolioWrite();
+    bootstrap.Toast.getOrCreateInstance(toastLiveExample).show();
+  } catch (error) {
+    console.log(error);
+  }
+
+  portfolioImage.value = "";
+  portfolioSubInput.value = "";
+  portfolioTitleInput.value = "";
+  portfolioTextarea.value = "";
+  portfolioLinkInput.value = "";
+});
+
+// function portfolioWrite() {}
+
+// -----------------------------------Portfolio-End--------------------------------------------
+// -----------------------------------Contact-End--------------------------------------------
+
+const contactAddress = document.querySelector("#contactAddress");
+const contactEmail = document.querySelector("#contactEmail");
+const contactPhone = document.querySelector("#contactPhone");
+const contactSubmit = document.querySelector("#contactSubmit");
+
+contactSubmit.addEventListener("click", writeInfo);
+
+function writeInfo(e) {
+e.preventDefault()
+  let obj = {
+    address: contactAddress.value,
+    email: contactEmail.value,
+    phone: contactPhone.value,
+  };
+
+  setData("info/", obj);
+}
+
+async function writeInfoHtml() {
+  const data = await getData("info/");
+  contactAddress.value = data.address;
+  contactEmail.value = data.email;
+  contactPhone.value = data.phone;
+}
+writeInfoHtml();
+
+// -----------------------------------Contact-End--------------------------------------------

@@ -167,7 +167,6 @@
                   class="form-control"
                   id="processInput"
                   placeholder="Enter your title"
-                  disabled
                 />
               </div>
               <div class="mb-3">
@@ -179,7 +178,6 @@
                   id="processTextareaOne"
                   rows="3"
                   placeholder="Enter your text"
-                  disabled
                 ></textarea>
               </div>
 
@@ -192,39 +190,39 @@
                   id="processTextareaTwo"
                   rows="3"
                   placeholder="Enter your text"
-                  disabled
                 ></textarea>
               </div>
               <hr />
               <div class="card mx-auto" style="width: 18rem">
-                <img
-                  src="https://img.freepik.com/premium-vector/business-analyst-icon-vector-image-can-be-used-diversity_120816-49197.jpg"
-                  width="50px"
-                  height="50px"
-                  alt="..."
-                  class="mx-auto"
-                />
+                <div class="d-flex justify-content-around align-items-center">
+                  <img
+                    src="https://img.freepik.com/premium-vector/business-analyst-icon-vector-image-can-be-used-diversity_120816-49197.jpg"
+                    width="50px"
+                    height="50px"
+                    alt="..."
+                  /><span>Default image</span>
+                </div>
+
                 <div class="card-body">
                   <input
                     type="text"
                     class="form-control"
                     id="processCardImage1"
-                    placeholder="Enter your title"
-                    
+                    placeholder="Enter your image url"
                   />
                   <input
                     type="text"
                     class="form-control"
                     id="processCardInput1"
                     placeholder="Enter your title"
-                    
+                    required
                   />
                   <textarea
                     class="form-control"
                     id="processCardTextarea1"
                     rows="3"
                     placeholder="Enter your text"
-                    
+                    required
                   ></textarea>
                 </div>
               </div>
@@ -238,6 +236,128 @@
                 <button
                   type="submit"
                   id="processSubmit"
+                  class="btn btn-warning w-25 p-2 mx-auto justify-content-center"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <section class="border rounded pt-3 pb-3">
+            <h2 class="d-flex justify-content-center">Portfolio</h2>
+
+            <form action="">
+              <div class="mb-3">
+                <label for="portfolioImage" class="form-label"
+                  >Enter image link</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="portfolioImage"
+                  placeholder="Enter image link"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="portfolioSubInput" class="form-label"
+                  >Enter your subtitle</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="portfolioSubInput"
+                  placeholder="Enter your subtitle"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="processTitleInput" class="form-label"
+                  >Enter your title</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="portfolioTitleInput"
+                  placeholder="Enter your title"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="portfolioLinkInput" class="form-label"
+                  >Enter your link</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="portfolioLinkInput"
+                  placeholder="Enter your link"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="portfolioTextarea" class="form-label"
+                  >Enter your description</label
+                >
+                <textarea
+                  class="form-control"
+                  id="portfolioTextarea"
+                  rows="3"
+                  placeholder="Enter your text"
+                ></textarea>
+              </div>
+
+              <div class="d-flex">
+                <button
+                  type="submit"
+                  id="portfolioSubmit"
+                  class="btn btn-warning w-25 p-2 mx-auto justify-content-center"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <section class="border rounded pt-3 pb-3">
+            <form>
+              <h2 class="text-light">Contact</h2>
+              <div class="mb-3">
+                <label for="contactAddress" class="form-label"
+                  >Enter your address</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="contactAddress"
+                  placeholder="Enter your address"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="contactEmail" class="form-label"
+                  >Enter your email</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="contactEmail"
+                  rows="3"
+                  placeholder="Enter your text"
+                ></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="contactPhone" class="form-label"
+                  >Enter your phone</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="contactPhone"
+                  placeholder="Enter your phone"
+                ></textarea>
+              </div>
+              <div class="d-flex">
+                <button
+                  type="submit"
+                  id="contactSubmit"
                   class="btn btn-warning w-25 p-2 mx-auto justify-content-center"
                 >
                   Save

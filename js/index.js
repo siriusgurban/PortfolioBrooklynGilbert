@@ -128,7 +128,8 @@ async function processWrite() {
   convertedData.map((item, index) => {
     processRight.innerHTML += `<div class="processItem">
                 <div class="processImage">
-                  <img src="./assets/image/process/notes.png" alt="notes" />
+                  <img src="${item.img}" alt="notes" />
+
                 </div>
                 <div>
                   <h5>${index + 1}. ${item.title}</h5>
@@ -136,7 +137,7 @@ async function processWrite() {
                     ${item.text}
                   </p>
                 </div>
-              </div>
+   </div>
   `;
   });
 }
@@ -144,3 +145,109 @@ async function processWrite() {
 processWrite();
 
 // -----------------------------------Process-End--------------------------------------------
+
+// -----------------------------------Portfolio-Start--------------------------------------------
+
+const portfolioContent = document.querySelector(".portfolioContent");
+const portfolioBtn = document.querySelector(".portfolioBtn");
+
+let convertedData = [];
+let visibleCount = 4; // how many to show initially
+
+async function portfolioWrite() {
+  const data = await getData("portfolio");
+  convertedData = convert(data);
+
+  renderPortfolio();
+}
+
+function renderPortfolio() {
+  portfolioContent.innerHTML = "";
+
+  // show only up to visibleCount
+  convertedData.slice(0, visibleCount).forEach((item) => {
+    portfolioContent.innerHTML += `
+      <div class="portfolioCard">
+        <img src="${item.image}" alt="portfolio" />
+        <div class="portfolioCardInfo">
+          <p class="cardSubtitle">${item.sub}</p>
+          <h5 class="cardTitle">${item.title}</h5>
+          <p class="cardDesc">${item.text}</p>
+          <div class="cardBtn">
+            <a href="${item.link}" target="_blank">Go Project</a>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  // hide button if all are shown
+  if (visibleCount >= convertedData.length) {
+    portfolioBtn.style.display = "none";
+  } else {
+    portfolioBtn.style.display = "flex";
+
+  }
+}
+
+portfolioBtn.addEventListener("click", () => {
+  visibleCount += 4; 
+  renderPortfolio();
+});
+
+portfolioWrite();
+
+
+
+
+// -----------------------------------Portfolio-End--------------------------------------------
+
+
+// -----------------------------------Contact-Start--------------------------------------------
+
+
+const contactInfo = document.querySelector("#contactInfo")
+
+async function contactInfoWrite() {
+  let data = await getData("info")
+
+  console.log(data, "data");
+  
+
+
+  contactInfo.innerHTML = `<a
+                    class="contactCard"
+                    target="_blank"
+                    href="https://www.google.com/maps/search/${data.address}"
+                  >
+                    <div class="contactImage">
+                      <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div class="contactInfo">
+                      <span>Address:</span>
+                      <span>${data.address}</span>
+                    </div>
+                  </a>
+                  <a class="contactCard" href="mailto:${data.email}">
+                    <div class="contactImage">
+                      <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="contactInfo">
+                      <span>My Email:</span>
+                      <span>${data.email}</span>
+                    </div>
+                  </a>
+                  <a class="contactCard" href="tel:${data.phone}">
+                    <div class="contactImage">
+                      <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div class="contactInfo">
+                      <span>Call Me Now:</span>
+                      <span>${data.phone}</span>
+                    </div>
+                  </a>`
+}
+
+contactInfoWrite()
+
+// -----------------------------------Contact-End--------------------------------------------
