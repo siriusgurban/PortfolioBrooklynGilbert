@@ -21,7 +21,7 @@ import {
   child,
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
-import { getData, convert } from "./handlers.js";
+import { getData, convert, addData } from "./handlers.js";
 
 const heroLeftContent = document.querySelector(".heroLeftContent");
 
@@ -249,5 +249,94 @@ async function contactInfoWrite() {
 }
 
 contactInfoWrite()
+
+
+// ------------------------------------------------------------------------
+
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // Collect values
+  const name = document.getElementById("contactFormName");
+  const email = document.getElementById("contactFormEmail");
+  const location = document.getElementById("contactFormLocation");
+  const budget = document.getElementById("contactFormBudget");
+  const subject = document.getElementById("contactFormSubject");
+  const message = document.getElementById("contactFormMessage");
+
+  let isValid = true;
+
+  // Clear old errors
+  form.querySelectorAll(".error").forEach((el) => (el.textContent = ""));
+  form.querySelectorAll("input, textarea").forEach((el) => {
+    el.style.borderBottom = "1px solid #ccc";
+  });
+
+  // Validation rules
+  if (name.value.trim().length < 4) {
+    setError(name, "Name must be at least 4 characters");
+    isValid = false;
+  }
+
+  if (!validateEmail(email.value)) {
+    setError(email, "Please enter a valid email");
+    isValid = false;
+  }
+
+  if (!budget.value || isNaN(budget.value)) {
+    setError(budget, "Budget must be a number");
+    isValid = false;
+  }
+
+  if (subject.value.trim().length < 1) {
+    setError(subject, "Subject is required");
+    isValid = false;
+  }
+
+  if (message.value.trim().length < 10) {
+    setError(message, "Message must be at least 10 characters");
+    isValid = false;
+  }
+
+  if (!isValid) return;
+
+  // If all valid → create object
+  const formData = {
+    name: name.value.trim(),
+    email: email.value.trim(),
+    location: location.value.trim() || null,
+    budget: Number(budget.value),
+    subject: subject.value.trim(),
+    message: message.value.trim(),
+  };
+
+
+  addData("contact", formData);
+
+  // Clear form
+  form.reset();
+  form.querySelectorAll("input, textarea").forEach((el) => {
+    el.style.borderBottom = "1px solid #ccc";
+  });
+
+
+  console.log("Form Data:", formData);
+});
+
+function setError(element, message) {
+  element.style.borderBottom = "1px solid red";
+  element.nextElementSibling.textContent = message;
+  element.nextElementSibling.style.color = "red";
+  element.nextElementSibling.style.fontSize = "12px";
+}
+
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email.toLowerCase());
+}
+
 
 // -----------------------------------Contact-End--------------------------------------------

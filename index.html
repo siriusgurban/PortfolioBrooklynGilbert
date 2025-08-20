@@ -412,7 +412,7 @@
               </p>
               <div class="contactBox">
                 <div id="contactInfo">
-                  <a
+                  <!-- <a
                     class="contactCard"
                     target="_blank"
                     href="https://www.google.com/maps/place/ANew+Mexico+31134/@25.762493,-80.193669,17z/data=!3m1!4b1!4m6!3m5!1s0x88d9b62274222223:0x7022222222222222!8m2!3d25.762493!4d-80.1910941!16s%2Fg%2F11b2222222?entry=ttu"
@@ -442,7 +442,7 @@
                       <span>Call Me Now:</span>
                       <span>00-1234 00000</span>
                     </div>
-                  </a>
+                  </a> -->
                 </div>
 
                 <ul class="aboutSocial">
@@ -475,19 +475,40 @@
                 There are many variations of passages of Lorem Ipsu
                 available,but the majority have suffered alte.
               </p>
-              <form action="">
-                <input type="text" placeholder="Name*" required />
-                <input type="email" placeholder="Email*" required />
-                <input type="text" placeholder="Location" />
+              <form action="" id="contactForm">
+                <input
+                  type="text"
+                  placeholder="Name*"
+                  id="contactFormName"
+                /><span class="error"></span>
+                <input
+                  type="email"
+                  placeholder="Email*"
+                  id="contactFormEmail"
+                /><span class="error"></span>
+                <input
+                  type="text"
+                  placeholder="Location"
+                  id="contactFormLocation"
+                /><span class="error"></span>
                 <div>
-                  <input type="number" placeholder="Budget*" required />
-                  <input type="text" placeholder="Subject*" required />
+                  <input
+                    type="number"
+                    placeholder="Budget*"
+                    id="contactFormBudget"
+                  /><span class="error"></span>
+                  <input
+                    type="text"
+                    placeholder="Subject*"
+                    id="contactFormSubject"
+                  /><span class="error"></span>
                 </div>
                 <textarea
                   type="text"
                   placeholder="Message*"
-                  required
-                ></textarea>
+                  id="contactFormMessage"
+                ></textarea
+                ><span class="error"></span>
                 <button type="submit">Submit</button>
               </form>
             </div>

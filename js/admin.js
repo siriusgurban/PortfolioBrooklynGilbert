@@ -104,7 +104,6 @@ heroSubmit.addEventListener("click", async (e) => {
   }
 });
 
-
 async function heroInner() {
   const data = await getData("hero");
 
@@ -292,7 +291,7 @@ portfolioSubmit.addEventListener("click", async (e) => {
 // function portfolioWrite() {}
 
 // -----------------------------------Portfolio-End--------------------------------------------
-// -----------------------------------Contact-End--------------------------------------------
+// -----------------------------------Contact-Start--------------------------------------------
 
 const contactAddress = document.querySelector("#contactAddress");
 const contactEmail = document.querySelector("#contactEmail");
@@ -302,14 +301,18 @@ const contactSubmit = document.querySelector("#contactSubmit");
 contactSubmit.addEventListener("click", writeInfo);
 
 function writeInfo(e) {
-e.preventDefault()
+  e.preventDefault();
   let obj = {
     address: contactAddress.value,
     email: contactEmail.value,
     phone: contactPhone.value,
   };
-
-  setData("info/", obj);
+  try {
+    setData("info/", obj);
+    bootstrap.Toast.getOrCreateInstance(toastLiveExample).show();
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 async function writeInfoHtml() {
@@ -319,5 +322,65 @@ async function writeInfoHtml() {
   contactPhone.value = data.phone;
 }
 writeInfoHtml();
+
+// ------------------------------------------------------------------
+
+const tbody = document.querySelector("tbody");
+
+let deleteId = null; // store the id for deletion
+const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
+
+// Event delegation for delete buttons
+tbody.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete-btn")) {
+    deleteId = e.target.getAttribute("data-id"); // save id
+    deleteModal.show(); // open modal
+  }
+});
+
+// Handle confirm delete
+confirmDeleteBtn.addEventListener("click", async () => {
+  if (deleteId) {
+    await remove(ref(db, "contact/" + deleteId));
+    deleteId = null; // reset
+    deleteModal.hide(); // close modal
+    writeContactTable(); // refresh table
+  }
+});
+
+async function writeContactTable() {
+  tbody.innerHTML = ""; // clear
+  const data = await getData("contact/");
+  let convertedDataContact = convert(data);
+
+  if (!convertedDataContact.length) {
+    tbody.innerHTML = `<tr><td colspan="8" class="text-center">No data available</td></tr>`;
+    return;
+  }
+
+  convertedDataContact.reverse().forEach((item, index) => {
+    tbody.innerHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${item.name}</td>
+        <td>${item.email}</td>
+        <td>${item.location === undefined ? "No location" : item.location}</td>
+        <td>${item.budget}</td>
+        <td>${item.subject}</td>
+        <td>${item.message}</td>
+        <td>
+          <button class="btn btn-danger delete-btn w-50 mx-auto" data-id="${
+            item.id
+          }">
+            Delete
+          </button>
+        </td>
+      </tr>
+    `;
+  });
+}
+
+writeContactTable();
 
 // -----------------------------------Contact-End--------------------------------------------
