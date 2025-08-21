@@ -667,6 +667,12 @@ main .clients .clientsContent {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  transition: all 0.3s ease;
+}
+main .clients .clientsContent .clientsCard:hover {
+  transition: all 0.3s ease;
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 main .testimonial {

@@ -135,7 +135,7 @@ const portfolioContent = document.querySelector(".portfolioContent");
 const portfolioBtn = document.querySelector(".portfolioBtn");
 
 let convertedData = [];
-let visibleCount = 4; // how many to show initially
+let visibleCount = 6; // how many to show initially
 
 async function portfolioWrite() {
   const data = await getData("portfolio");
