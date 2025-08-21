@@ -108,7 +108,7 @@ async function processWrite() {
 
   console.log(convertedData, "dataRight");
 
-  convertedData.map((item, index) => {
+  convertedData.reverse().map((item, index) => {
     processRight.innerHTML += `<div class="processItem">
                 <div class="processImage">
                   <img src="${item.img}" alt="notes" />
@@ -139,8 +139,7 @@ let visibleCount = 4; // how many to show initially
 
 async function portfolioWrite() {
   const data = await getData("portfolio");
-  convertedData = convert(data);
-
+  convertedData = convert(data).reverse();
   renderPortfolio();
 }
 

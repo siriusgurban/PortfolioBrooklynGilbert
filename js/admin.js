@@ -197,10 +197,7 @@ const processCardSubmit = document.querySelector("#processCardSubmit");
 const processCardImage = document.querySelector("#processCardImage");
 const processCardInput = document.querySelector("#processCardInput");
 const processCardTextarea = document.querySelector("#processCardTextarea");
-
 const processCard = document.querySelector("#processCard");
-const deleteCardBtn = document.querySelector("#deleteCardBtn");
-
 const processEdit = document.querySelector("#processEdit");
 
 processSubmit.addEventListener("click", async (e) => {
@@ -225,6 +222,8 @@ processSubmit.addEventListener("click", async (e) => {
   }
 });
 
+// --------------------------------------------------------------------
+
 processCardSubmit.addEventListener("click", async (e) => {
   e.preventDefault();
   let objRight = {
@@ -237,14 +236,17 @@ processCardSubmit.addEventListener("click", async (e) => {
 
   try {
     if (
-      processCardInput1.value.trim().length === 0 &&
-      processCardTextarea1.value.trim().length === 0
+      processCardInput.value.trim().length === 0 &&
+      processCardTextarea.value.trim().length === 0
     ) {
-      return bootstrap.Toast.getOrCreateInstance(liveToast).show();
+      return bootstrap.Toast.getOrCreateInstance(liveToastError).show();
     }
     addData("process/" + "right", objRight);
     await processWrite();
     bootstrap.Toast.getOrCreateInstance(toastLiveExample).show();
+    processCardImage.value = "";
+    processCardInput.value = "";
+    processCardTextarea.value = "";
   } catch (error) {
     console.log(error);
   }
@@ -266,40 +268,48 @@ async function processWrite() {
   processTextareaTwo.value = dataLeft?.textTwo;
 }
 
+let deleteProcessId = null;
+
 async function processCardWrite() {
   const dataRight = await getData("process/right");
-
   let data = convert(dataRight);
   processCard.innerHTML = "";
 
   data.forEach((item) => {
     const card = document.createElement("div");
     card.className = "card pt-2 pb-2 d-flex flex-column ";
-
     card.style.width = "18rem";
     card.id = item.id;
 
     card.innerHTML = `
       <div class="d-flex justify-content-center"><img src="${item.img}" width="50" height="50" /></div>
-
       <div class="card-body">
-      <div class="form-control processCardInput">${item.title}</div>
-      <div class="form-control processCardTextarea">${item.text}</div>
+        <div class="form-control processCardInput">${item.title}</div>
+        <div class="form-control processCardTextarea">${item.text}</div>
       </div>
-      <button class="btn btn-danger delete-btn w-50 mx-auto">Delete</button></div>
-  `;
+      <button class="btn btn-danger delete-btn dlt w-50 mx-auto" data-id="${item.id}">Delete</button>
+    `;
 
-    card
-      .querySelector(".delete-btn")
-      .addEventListener("click", () => deleteCard(item.id));
+    card.querySelector(".dlt").addEventListener("click", (e) => {
+      deleteProcessId = e.target.getAttribute("data-id");
+      const modal = new bootstrap.Modal(document.getElementById("deleteModal"));
+      modal.show();
+    });
+
     processCard.appendChild(card);
   });
 }
 
-async function deleteCard(id) {
-  await remove(ref(db, "process/right/" + id));
-  processWrite();
-}
+document.getElementById("confirmDeleteBtn").addEventListener("click", async () => {
+
+  if (deleteProcessId) {
+    await remove(ref(db, "process/right/" + deleteProcessId));
+    const modal = bootstrap.Modal.getInstance(document.getElementById("deleteModal"));
+    modal.hide();
+    processCardWrite();
+    deleteProcessId = null;
+  }
+});
 
 processEdit.addEventListener("click", (e) => {
   e.preventDefault();
@@ -324,34 +334,119 @@ const portfolioTitleInput = document.querySelector("#portfolioTitleInput");
 const portfolioTextarea = document.querySelector("#portfolioTextarea");
 const portfolioLinkInput = document.querySelector("#portfolioLinkInput");
 const portfolioSubmit = document.querySelector("#portfolioSubmit");
+const portfolioCard = document.querySelector("#portfolioCard");
+
+const cloudName = "da9pxl3o7"; // e.g. "dmoabc123"
+const uploadPreset = "Portfolio";
 
 portfolioSubmit.addEventListener("click", async (e) => {
   e.preventDefault();
-
-  let obj = {
-    image: portfolioImage.value,
-    sub: portfolioSubInput.value,
-    title: portfolioTitleInput.value,
-    text: portfolioTextarea.value,
-    link: portfolioLinkInput.value,
-  };
-
-  try {
-    addData("portfolio/", obj);
-    // await portfolioWrite();
-    bootstrap.Toast.getOrCreateInstance(toastLiveExample).show();
-  } catch (error) {
-    console.log(error);
+  if (
+    portfolioSubInput.value.trim().length === 0 &&
+    portfolioTitleInput.value.trim().length === 0 &&
+    portfolioTextarea.value.trim().length === 0 &&
+    portfolioLinkInput.value.trim().length === 0
+  ) {
+    return bootstrap.Toast.getOrCreateInstance(liveToastError).show();
   }
 
-  portfolioImage.value = "";
-  portfolioSubInput.value = "";
-  portfolioTitleInput.value = "";
-  portfolioTextarea.value = "";
-  portfolioLinkInput.value = "";
+  try {
+    portfolioSubmit.setAttribute("disabled", "");
+
+    const file = portfolioImage.files[0];
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", uploadPreset);
+
+    const uploadRes = await fetch(
+      `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    const uploadData = await uploadRes.json();
+    console.log("Cloudinary Upload:", uploadData);
+
+    let obj = {
+      image: uploadData.secure_url
+        ? uploadData.secure_url
+        : "https://placehold.co/420x240",
+
+      sub: portfolioSubInput.value,
+      title: portfolioTitleInput.value,
+      text: portfolioTextarea.value,
+      link: portfolioLinkInput.value,
+    };
+
+    await addData("portfolio/", obj);
+
+    bootstrap.Toast.getOrCreateInstance(toastLiveExample).show();
+
+    portfolioImage.value = "";
+    portfolioSubInput.value = "";
+    portfolioTitleInput.value = "";
+    portfolioTextarea.value = "";
+    portfolioLinkInput.value = "";
+  } catch (error) {
+    console.error("Error saving portfolio:", error);
+  } finally {
+    portfolioSubmit.removeAttribute("disabled");
+  }
+
+  writePortfolioCard();
 });
 
-// function portfolioWrite() {}
+let deleteCardId = null;
+
+async function writePortfolioCard() {
+  const dataRight = await getData("portfolio");
+  let data = convert(dataRight);
+  portfolioCard.innerHTML = "";
+
+  data.forEach((item) => {
+    const card = document.createElement("div");
+    card.className = "card pt-2 pb-2 d-flex flex-column ";
+    card.style.width = "18rem";
+    card.id = item.id;
+
+    card.innerHTML = `
+      <img src="${item.image}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h6 class="card-title">${item.sub}</h6>
+        <h5 class="card-title">${item.title}</h5>
+        <p class="card-text">${item.text}</p>
+        <button class="btn btn-danger delete-btn dlt-btn w-50 mx-auto" data-id="${item.id}">Delete</button>
+      </div>
+    `;
+
+    card.querySelector(".dlt-btn").addEventListener("click", (e) => {
+      deleteId = e.target.getAttribute("data-id");
+      const modal = new bootstrap.Modal(document.getElementById("deleteModal"));
+      modal.show();
+    });
+
+    portfolioCard.appendChild(card);
+  });
+}
+
+document
+  .getElementById("confirmDeleteBtn")
+  .addEventListener("click", async () => {
+    if (deleteId) {
+      await remove(ref(db, "portfolio/" + deleteId));
+      const modal = bootstrap.Modal.getInstance(
+        document.getElementById("deleteModal")
+      );
+      modal.hide();
+      writePortfolioCard();
+      deleteCardId = null;
+    }
+  });
+
+writePortfolioCard();
 
 // -----------------------------------Portfolio-End--------------------------------------------
 // -----------------------------------Contact-Start--------------------------------------------
@@ -360,11 +455,18 @@ const contactAddress = document.querySelector("#contactAddress");
 const contactEmail = document.querySelector("#contactEmail");
 const contactPhone = document.querySelector("#contactPhone");
 const contactSubmit = document.querySelector("#contactSubmit");
+const contactEdit = document.querySelector("#contactEdit");
 
-contactSubmit.addEventListener("click", writeInfo);
-
-function writeInfo(e) {
+contactSubmit.addEventListener("click", (e) => {
   e.preventDefault();
+
+  contactSubmit.setAttribute("disabled", "");
+  contactEdit.removeAttribute("disabled");
+
+  contactAddress.setAttribute("disabled", "");
+  contactEmail.setAttribute("disabled", "");
+  contactPhone.setAttribute("disabled", "");
+
   let obj = {
     address: contactAddress.value,
     email: contactEmail.value,
@@ -376,14 +478,33 @@ function writeInfo(e) {
   } catch (error) {
     console.log(error);
   }
-}
+});
 
 async function writeInfoHtml() {
   const data = await getData("info/");
+
+  contactSubmit.setAttribute("disabled", "");
+  contactEdit.removeAttribute("disabled");
+
+  contactAddress.setAttribute("disabled", "");
+  contactEmail.setAttribute("disabled", "");
+  contactPhone.setAttribute("disabled", "");
+
   contactAddress.value = data.address;
   contactEmail.value = data.email;
   contactPhone.value = data.phone;
 }
+
+contactEdit.addEventListener("click", (e) => {
+  e.preventDefault();
+  contactSubmit.removeAttribute("disabled");
+  contactEdit.setAttribute("disabled", "");
+
+  contactAddress.removeAttribute("disabled");
+  contactEmail.removeAttribute("disabled");
+  contactPhone.removeAttribute("disabled");
+});
+
 writeInfoHtml();
 
 // ------------------------------------------------------------------

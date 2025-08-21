@@ -55,7 +55,7 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="toast-body">Your message is changed!</div>
+        <div class="toast-body">Fill the inputs!</div>
       </div>
     </div>
     <!-- Toasty -->
@@ -280,15 +280,15 @@
           <!-- -------------------------------------------portfolio-start-------------------------------- -->
 
           <section class="border rounded pt-3 pb-3">
-            <h2 class="d-flex justify-content-center">Portfolio</h2>
+            <h2 class="text-light">Portfolio</h2>
 
             <form action="">
               <div class="mb-3">
                 <label for="portfolioImage" class="form-label"
-                  >Enter image link</label
+                  >Enter image link (optional)</label
                 >
                 <input
-                  type="text"
+                  type="file"
                   class="form-control"
                   id="portfolioImage"
                   placeholder="Enter image link"
@@ -345,10 +345,15 @@
                   id="portfolioSubmit"
                   class="btn btn-warning w-25 p-2 mx-auto justify-content-center"
                 >
-                  Save
+                  Add
                 </button>
               </div>
             </form>
+            <hr />
+            <div
+              class="d-flex gap-3 mb-3 flex-wrap justify-content-center"
+              id="portfolioCard"
+            ></div>
           </section>
 
           <!-- -------------------------------------------portfolio-end-------------------------------- -->
@@ -358,10 +363,10 @@
           <section class="border rounded pt-3 pb-3">
             <div class="d-flex flex-column gap-3">
               <form>
-                            <div class="d-flex justify-content-between">
-              <h2 class="text-light">Contact</h2>
-              <button class="btn btn-warning" id="processEdit">Edit</button>
-            </div>
+                <div class="d-flex justify-content-between">
+                  <h2 class="text-light">Contact</h2>
+                  <button class="btn btn-warning" id="contactEdit">Edit</button>
+                </div>
                 <div class="mb-3">
                   <label for="contactAddress" class="form-label"
                     >Enter your address</label
