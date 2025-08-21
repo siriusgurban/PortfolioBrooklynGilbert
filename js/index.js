@@ -42,9 +42,10 @@ const heroStatExperience = document.querySelector("#heroStatExperience");
 const heroStatProject = document.querySelector("#heroStatProject");
 const heroStatClient = document.querySelector("#heroStatClient");
 
-async function getYear() {
+async function getFromGitHub() {
   let data = await fetch("https://api.github.com/users/siriusgurban");
   let res = await data.json();
+
   let year = new Date(res.created_at).getFullYear();
   let currentYear = new Date().getFullYear();
   let experience = currentYear - year;
@@ -53,38 +54,20 @@ async function getYear() {
     <h4>${experience} Y.</h4>
     <span>Experience</span>
   `;
-}
 
-// getYear()
-
-async function getRepos() {
-  let data = await fetch("https://api.github.com/users/siriusgurban/repos");
-  let res = await data.json();
   heroStatProject.innerHTML = `
-    <h4>${res.length}+</h4>
+    <h4>${res.public_repos}+</h4>
     <span>Project Completed</span>
   `;
 
-  console.log(res.length, "res");
-}
-
-// getRepos();
-
-async function getFollowers() {
-  let data = await fetch("https://api.github.com/users/siriusgurban/followers");
-
-  let res = await data.json();
-  console.log(res.length, "followers");
   heroStatClient.innerHTML = `
-    <h4>${res.length}</h4>
-    <span>Happy Client</span>
+    <h4>${res.followers}+</h4>
+    <span>Project Completed</span>
   `;
 }
 
-// getFollowers();
+// getFromGitHub();
 
-// -----------------------------------Hero-End--------------------------------------------
-// -----------------------------------About-Start--------------------------------------------
 
 const aboutTitle = document.querySelector(".aboutTitle");
 const aboutText = document.querySelector(".aboutText");
@@ -186,34 +169,24 @@ function renderPortfolio() {
     portfolioBtn.style.display = "none";
   } else {
     portfolioBtn.style.display = "flex";
-
   }
 }
 
 portfolioBtn.addEventListener("click", () => {
-  visibleCount += 4; 
+  visibleCount += 4;
   renderPortfolio();
 });
 
 portfolioWrite();
 
-
-
-
 // -----------------------------------Portfolio-End--------------------------------------------
-
 
 // -----------------------------------Contact-Start--------------------------------------------
 
-
-const contactInfo = document.querySelector("#contactInfo")
+const contactInfo = document.querySelector("#contactInfo");
 
 async function contactInfoWrite() {
-  let data = await getData("info")
-
-  console.log(data, "data");
-  
-
+  let data = await getData("info");
 
   contactInfo.innerHTML = `<a
                     class="contactCard"
@@ -245,14 +218,12 @@ async function contactInfoWrite() {
                       <span>Call Me Now:</span>
                       <span>${data.phone}</span>
                     </div>
-                  </a>`
+                  </a>`;
 }
 
-contactInfoWrite()
-
+contactInfoWrite();
 
 // ------------------------------------------------------------------------
-
 
 const form = document.getElementById("contactForm");
 
@@ -313,7 +284,6 @@ form.addEventListener("submit", function (e) {
     message: message.value.trim(),
   };
 
-
   addData("contact", formData);
 
   // Clear form
@@ -322,8 +292,6 @@ form.addEventListener("submit", function (e) {
     el.style.borderBottom = "1px solid #ccc";
   });
 
-
-  console.log("Form Data:", formData);
 });
 
 function setError(element, message) {
@@ -337,6 +305,5 @@ function validateEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email.toLowerCase());
 }
-
 
 // -----------------------------------Contact-End--------------------------------------------

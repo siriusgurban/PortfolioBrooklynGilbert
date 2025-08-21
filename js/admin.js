@@ -86,9 +86,13 @@ const liveToastError = document.getElementById("liveToastError");
 const heroInput = document.querySelector("#heroInput");
 const heroTextarea = document.querySelector("#heroTextarea");
 const heroSubmit = document.querySelector("#heroSubmit");
+const heroEdit = document.querySelector("#heroEdit");
 
 heroSubmit.addEventListener("click", async (e) => {
   e.preventDefault();
+
+  heroSubmit.setAttribute("disabled", "");
+  heroEdit.removeAttribute("disabled");
 
   let obj = {
     title: heroInput.value,
@@ -107,11 +111,26 @@ heroSubmit.addEventListener("click", async (e) => {
 async function heroInner() {
   const data = await getData("hero");
 
-  console.log(data, "data");
+  heroSubmit.setAttribute("disabled", "");
+  heroEdit.removeAttribute("disabled");
+
+  heroInput.setAttribute("disabled", "");
+  heroTextarea.setAttribute("disabled", "");
 
   heroInput.value = data?.title;
   heroTextarea.value = data?.text;
 }
+
+heroEdit.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  heroSubmit.removeAttribute("disabled");
+  heroEdit.setAttribute("disabled", "");
+
+  heroInput.removeAttribute("disabled");
+  heroTextarea.removeAttribute("disabled");
+});
+
 heroInner();
 
 // -----------------------------------Hero-End--------------------------------------------
@@ -142,10 +161,29 @@ aboutSubmit.addEventListener("click", async (e) => {
 
 async function aboutWrite() {
   const data = await getData("about");
+
+  aboutSubmit.setAttribute("disabled", "");
+  aboutEdit.removeAttribute("disabled");
+
+  aboutInput.setAttribute("disabled", "");
+  aboutTextareaOne.setAttribute("disabled", "");
+  aboutTextareaTwo.setAttribute("disabled", "");
+
   aboutInput.value = data?.title;
   aboutTextareaOne.value = data?.textOne;
   aboutTextareaTwo.value = data?.textTwo;
 }
+
+aboutEdit.addEventListener("click", (e) => {
+  e.preventDefault();
+  aboutSubmit.removeAttribute("disabled");
+  aboutEdit.setAttribute("disabled", "");
+
+  aboutInput.removeAttribute("disabled");
+  aboutTextareaOne.removeAttribute("disabled");
+  aboutTextareaTwo.removeAttribute("disabled");
+});
+
 aboutWrite();
 
 // -----------------------------------About-End--------------------------------------------
@@ -155,19 +193,22 @@ const processInput = document.querySelector("#processInput");
 const processTextareaOne = document.querySelector("#processTextareaOne");
 const processTextareaTwo = document.querySelector("#processTextareaTwo");
 const processSubmit = document.querySelector("#processSubmit");
+const processCardSubmit = document.querySelector("#processCardSubmit");
 const processCardImage = document.querySelector("#processCardImage");
 const processCardInput = document.querySelector("#processCardInput");
 const processCardTextarea = document.querySelector("#processCardTextarea");
-const processCardImage1 = document.querySelector("#processCardImage1");
-const processCardInput1 = document.querySelector("#processCardInput1");
-const processCardTextarea1 = document.querySelector("#processCardTextarea1");
+
 const processCard = document.querySelector("#processCard");
 const deleteCardBtn = document.querySelector("#deleteCardBtn");
 
-const processEditBtn = document.querySelector("#processEditBtn");
+const processEdit = document.querySelector("#processEdit");
 
 processSubmit.addEventListener("click", async (e) => {
   e.preventDefault();
+
+  processInput.setAttribute("disabled", "");
+  processTextareaOne.setAttribute("disabled", "");
+  processTextareaTwo.setAttribute("disabled", "");
 
   let obj = {
     title: processInput.value,
@@ -182,23 +223,24 @@ processSubmit.addEventListener("click", async (e) => {
   } catch (error) {
     console.log(error);
   }
+});
 
+processCardSubmit.addEventListener("click", async (e) => {
+  e.preventDefault();
   let objRight = {
-    img: processCardImage1.value
-      ? processCardImage1.value
+    img: processCardImage.value
+      ? processCardImage.value
       : "https://img.freepik.com/premium-vector/business-analyst-icon-vector-image-can-be-used-diversity_120816-49197.jpg",
-    title: processCardInput1.value,
-    text: processCardTextarea1.value,
+    title: processCardInput.value,
+    text: processCardTextarea.value,
   };
-
-  console.log(objRight, "objRight");
 
   try {
     if (
       processCardInput1.value.trim().length === 0 &&
       processCardTextarea1.value.trim().length === 0
     ) {
-      return bootstrap.Toast.getOrCreateInstance(liveToastError).show();
+      return bootstrap.Toast.getOrCreateInstance(liveToast).show();
     }
     addData("process/" + "right", objRight);
     await processWrite();
@@ -206,21 +248,28 @@ processSubmit.addEventListener("click", async (e) => {
   } catch (error) {
     console.log(error);
   }
+
+  processCardWrite();
 });
-
-
-
 
 async function processWrite() {
   const dataLeft = await getData("process/" + "left");
+
+  processInput.setAttribute("disabled", "");
+  processTextareaOne.setAttribute("disabled", "");
+  processTextareaTwo.setAttribute("disabled", "");
+
+  processSubmit.setAttribute("disabled", "");
+  processEdit.removeAttribute("disabled");
   processInput.value = dataLeft?.title;
   processTextareaOne.value = dataLeft?.textOne;
   processTextareaTwo.value = dataLeft?.textTwo;
+}
 
+async function processCardWrite() {
   const dataRight = await getData("process/right");
 
   let data = convert(dataRight);
-  console.log(data, "data");
   processCard.innerHTML = "";
 
   data.forEach((item) => {
@@ -251,6 +300,18 @@ async function deleteCard(id) {
   await remove(ref(db, "process/right/" + id));
   processWrite();
 }
+
+processEdit.addEventListener("click", (e) => {
+  e.preventDefault();
+  processSubmit.removeAttribute("disabled");
+  processEdit.setAttribute("disabled", "");
+
+  processInput.removeAttribute("disabled");
+  processTextareaOne.removeAttribute("disabled");
+  processTextareaTwo.removeAttribute("disabled");
+});
+
+processCardWrite();
 
 processWrite();
 

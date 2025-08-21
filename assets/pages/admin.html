@@ -32,7 +32,7 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="toast-body">Your message is changed!</div>
+        <div class="toast-body">Your message is saved!</div>
       </div>
     </div>
 
@@ -65,9 +65,15 @@
         <div class="row gap-5">
           <h1 class="text-center">Admin Panel</h1>
 
+          <!-- -------------------------------------------hero-start-------------------------------- -->
+
           <section class="border rounded pt-2 pb-3">
             <form>
-              <h2 class="text-light">Hero</h2>
+              <div class="d-flex justify-content-between">
+                <h2 class="text-light">Hero</h2>
+                <button class="btn btn-warning" id="heroEdit">Edit</button>
+              </div>
+
               <div class="mb-3">
                 <label for="heroInput" class="form-label"
                   >Enter your title</label
@@ -102,9 +108,17 @@
             </form>
           </section>
 
+          <!-- -------------------------------------------hero-end-------------------------------- -->
+
+          <!-- -------------------------------------------about-start-------------------------------- -->
+
           <section class="border rounded pt-3 pb-3">
             <form>
-              <h2 class="text-light">About</h2>
+              <div class="d-flex justify-content-between">
+                <h2 class="text-light">About</h2>
+                <button class="btn btn-warning" id="aboutEdit">Edit</button>
+              </div>
+
               <div class="mb-3">
                 <label for="aboutInput" class="form-label"
                   >Enter your title</label
@@ -151,9 +165,14 @@
             </form>
           </section>
 
+          <!-- -------------------------------------------about-end-------------------------------- -->
+
+          <!-- -------------------------------------------work-process-start-------------------------------- -->
+
           <section class="border rounded pt-3 pb-3">
             <div class="d-flex justify-content-between">
               <h2 class="text-light">Work Process</h2>
+              <button class="btn btn-warning" id="processEdit">Edit</button>
             </div>
 
             <form>
@@ -190,8 +209,21 @@
                   rows="3"
                   placeholder="Enter your text"
                 ></textarea>
+
+                <div class="d-flex mt-3">
+                  <button
+                    type="submit"
+                    id="processSubmit"
+                    class="btn btn-warning w-25 p-2 mx-auto justify-content-center"
+                  >
+                    Save
+                  </button>
+                </div>
               </div>
               <hr />
+            </form>
+
+            <form action="">
               <div class="card mx-auto mb-3" style="width: 18rem">
                 <div class="d-flex justify-content-around align-items-center">
                   <img
@@ -206,41 +238,46 @@
                   <input
                     type="text"
                     class="form-control"
-                    id="processCardImage1"
+                    id="processCardImage"
                     placeholder="Enter your image url"
                   />
                   <input
                     type="text"
                     class="form-control"
-                    id="processCardInput1"
+                    id="processCardInput"
                     placeholder="Enter your title"
                     required
                   />
                   <textarea
                     class="form-control"
-                    id="processCardTextarea1"
+                    id="processCardTextarea"
                     rows="3"
                     placeholder="Enter your text"
                     required
                   ></textarea>
                 </div>
               </div>
-              <div class="d-flex">
+
+              <div class="d-flex mt-3">
                 <button
                   type="submit"
-                  id="processSubmit"
+                  id="processCardSubmit"
                   class="btn btn-warning w-25 p-2 mx-auto justify-content-center"
                 >
-                  Save
+                  Add
                 </button>
               </div>
-              <hr />
-              <div
-                class="d-flex gap-3 mb-3 flex-wrap justify-content-center"
-                id="processCard"
-              ></div>
             </form>
+            <hr />
+            <div
+              class="d-flex gap-3 mb-3 flex-wrap justify-content-center"
+              id="processCard"
+            ></div>
           </section>
+
+          <!-- -------------------------------------------work-process-end-------------------------------- -->
+
+          <!-- -------------------------------------------portfolio-start-------------------------------- -->
 
           <section class="border rounded pt-3 pb-3">
             <h2 class="d-flex justify-content-center">Portfolio</h2>
@@ -314,10 +351,17 @@
             </form>
           </section>
 
+          <!-- -------------------------------------------portfolio-end-------------------------------- -->
+
+          <!-- -------------------------------------------contact-start-------------------------------- -->
+
           <section class="border rounded pt-3 pb-3">
             <div class="d-flex flex-column gap-3">
               <form>
-                <h2 class="text-light">Contact</h2>
+                            <div class="d-flex justify-content-between">
+              <h2 class="text-light">Contact</h2>
+              <button class="btn btn-warning" id="processEdit">Edit</button>
+            </div>
                 <div class="mb-3">
                   <label for="contactAddress" class="form-label"
                     >Enter your address</label
@@ -385,6 +429,8 @@
               </table>
             </div>
           </section>
+
+          <!-- -------------------------------------------contact-end-------------------------------- -->
 
           <div
             class="modal fade"

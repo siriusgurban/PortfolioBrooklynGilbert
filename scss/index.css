@@ -904,11 +904,13 @@ main .contact .container .contactContent .contactRight form button:hover {
 .footer .container .footerContent {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   height: 96px;
 }
 .footer .container .footerContent .footerLogo {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   align-items: center;
   cursor: pointer;
