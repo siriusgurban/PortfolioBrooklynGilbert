@@ -19,6 +19,7 @@ main {
           max-width: 424px;
           position: relative;
           img {
+            transform: rotateY(-180deg);
             width: 100%;
           }
           .aboutSocial {

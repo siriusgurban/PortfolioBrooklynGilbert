@@ -183,6 +183,7 @@ main .about .container .aboutContent .aboutLeft {
   position: relative;
 }
 main .about .container .aboutContent .aboutLeft img {
+  transform: rotateY(-180deg);
   width: 100%;
 }
 main .about .container .aboutContent .aboutLeft .aboutSocial {
