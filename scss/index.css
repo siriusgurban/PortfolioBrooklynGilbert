@@ -182,7 +182,7 @@ main .about .container .aboutContent .aboutLeft {
   max-width: 424px;
   position: relative;
 }
-main .about .container .aboutContent .aboutLeft img {
+main .about .container .aboutContent .aboutLeft .aboutImage {
   transform: rotateY(-180deg);
   width: 100%;
 }

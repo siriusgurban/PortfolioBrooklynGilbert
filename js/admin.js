@@ -7,20 +7,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebas
 import { getDatabase } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
 import {
-  getAuth,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-import {
-  set,
   remove,
-  update,
   ref,
-  push,
-  onValue,
-  get,
-  child,
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
 import { getData, setData, convert, addData } from "./handlers.js";
@@ -34,47 +22,6 @@ import { getData, setData, convert, addData } from "./handlers.js";
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-let porte = {
-  hero: {
-    title: "Hello, I’m Brooklyn Gilbert",
-    text: "I'm a Freelance UI/UX Designer and Developer based in London, England. I strives to build immersive and beautiful web applications through carefully crafted code and user-centric design.",
-    experience: 2019,
-    projects: 100,
-    clients: 58,
-  },
-  about: {
-    title: "I am Professional User Experience Designer",
-    textTwo:
-      "I design and develop services for customers specializing creating stylish, modern websites, web services and online stores. My passion is to design digital user experiences. ",
-    textTwo:
-      "I design and develop services for customers specializing creating stylish, modern websites, web services.",
-  },
-  process: {
-    title: "Work Process",
-    textOne:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum. Suspendis imperdiet,",
-    textTwo:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non.",
-    process_card: [
-      {
-        title: "1. Research",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.",
-      },
-      {
-        title: "2. Analyze",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.",
-      },
-      {
-        title: "3. Design",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.",
-      },
-      {
-        title: "4. Launch",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.",
-      },
-    ],
-  },
-};
 
 // -----------------------------------Toasty-Start--------------------------------------------
 
@@ -300,16 +247,19 @@ async function processCardWrite() {
   });
 }
 
-document.getElementById("confirmDeleteBtn").addEventListener("click", async () => {
-
-  if (deleteProcessId) {
-    await remove(ref(db, "process/right/" + deleteProcessId));
-    const modal = bootstrap.Modal.getInstance(document.getElementById("deleteModal"));
-    modal.hide();
-    processCardWrite();
-    deleteProcessId = null;
-  }
-});
+document
+  .getElementById("confirmDeleteBtn")
+  .addEventListener("click", async () => {
+    if (deleteProcessId) {
+      await remove(ref(db, "process/right/" + deleteProcessId));
+      const modal = bootstrap.Modal.getInstance(
+        document.getElementById("deleteModal")
+      );
+      modal.hide();
+      processCardWrite();
+      deleteProcessId = null;
+    }
+  });
 
 processEdit.addEventListener("click", (e) => {
   e.preventDefault();

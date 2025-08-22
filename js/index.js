@@ -1,26 +1,5 @@
 "use strict";
 
-import { firebaseConfig } from "./firebase.js";
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-import {
-  set,
-  remove,
-  update,
-  ref,
-  push,
-  onValue,
-  get,
-  child,
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
-
 import { getData, convert, addData } from "./handlers.js";
 
 const heroLeftContent = document.querySelector(".heroLeftContent");
@@ -66,7 +45,7 @@ async function getFromGitHub() {
   `;
 }
 
-// getFromGitHub();
+getFromGitHub();
 
 
 const aboutTitle = document.querySelector(".aboutTitle");
