@@ -9,7 +9,7 @@ This project created with HTML, CSS, Vanilla JS. I've used FireBase as a databas
 
 Also responsive design exists.
 
-<img width="328" height="670" alt="image" src="https://github.com/user-attachments/assets/a9dfd3f8-b207-4457-a17d-6cd0d8a78647" /> <img width="404" height="829" alt="image" src="https://github.com/user-attachments/assets/25f5a55f-8066-4d23-80cb-85d3bf87ff4d" />
+<img width="404" height="829" alt="image" src="https://github.com/user-attachments/assets/39767b82-4aad-48b3-8e0b-2726183fc893" /> <img width="404" height="829" alt="image" src="https://github.com/user-attachments/assets/25f5a55f-8066-4d23-80cb-85d3bf87ff4d" />
 
 
 
