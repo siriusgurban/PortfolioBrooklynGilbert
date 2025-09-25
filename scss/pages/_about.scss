@@ -1,10 +1,10 @@
 @use "../variables" as *;
 
 main {
-    
   .about {
     position: relative;
     top: 112px;
+
     .container {
       .aboutContent {
         display: flex;
@@ -18,10 +18,12 @@ main {
         .aboutLeft {
           max-width: 424px;
           position: relative;
+
           .aboutImage {
             transform: rotateY(-180deg);
             width: 100%;
           }
+
           .aboutSocial {
             padding: 12px;
             background-color: $white;
@@ -32,6 +34,7 @@ main {
             box-shadow: 0px 12px 64px 0px rgba(28, 25, 25, 0.12);
             background-color: rgba(255, 255, 255, 1);
             display: flex;
+
             li {
               width: 48px;
               height: 48px;
@@ -50,8 +53,8 @@ main {
           display: flex;
           flex-direction: column;
           justify-content: center;
-
           gap: 32px;
+
           .aboutTitle {
             font-size: 38px;
             font-weight: 400;
@@ -111,6 +114,98 @@ main {
           }
         }
       }
+    }
+  }
+}
+
+/* ✅ Responsive Styles */
+
+/* --- Medium screens (max 1200px) --- */
+@media (max-width: 1200px) {
+  main {
+    .about .container .aboutContent {
+      padding: 64px;
+      gap: 32px;
+      .aboutLeft{
+        .aboutSocial{
+          display: none;
+        }
+      }
+    }
+
+    .about .aboutRight .aboutTitle {
+      font-size: 32px;
+      line-height: 42px;
+    }
+  }
+}
+
+/* --- Tablets (max 768px) --- */
+@media (max-width: 768px) {
+  main {
+    .about .container .aboutContent {
+      flex-direction: column;
+      align-items: center;
+      padding: 48px;
+      text-align: center;
+    }
+
+    .about .aboutLeft {
+      max-width: 300px;
+      .aboutSocial {
+        display: none;
+      }
+    }
+
+    .about .aboutRight {
+      max-width: 100%;
+      gap: 24px;
+    }
+
+    .about .aboutRight .aboutTitle {
+      font-size: 28px;
+      line-height: 36px;
+    }
+
+    .about .aboutRight .aboutText {
+      font-size: 16px;
+    }
+
+    .about .aboutRight .aboutBtn {
+      justify-content: center;
+    }
+  }
+}
+
+/* --- Small screens / Phones (max 300px) --- */
+@media (max-width: 300px) {
+  main {
+    .about .container .aboutContent {
+      padding: 24px;
+      .aboutLeft {
+        .aboutSocial {
+          display: none;
+        }
+      }
+    }
+
+    .about .aboutRight .aboutTitle {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    .about .aboutRight .aboutText {
+      font-size: 14px;
+    }
+
+    .about .aboutRight .aboutBtn {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .about .aboutRight .aboutBtn a {
+      width: 100%;
+      text-align: center;
     }
   }
 }

@@ -4,15 +4,18 @@ main {
   .services {
     padding: 150px 0;
     background-color: $grayProcess;
+
     .container {
       .servicesContent {
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+        flex-wrap: wrap;
 
         .servicesLeft {
           max-width: 529px;
+          width: 100%;
+
           .servicesTitle {
             font-size: 48px;
             font-weight: 400;
@@ -20,12 +23,14 @@ main {
             margin-bottom: 24px;
             color: $blackLighter;
           }
+
           .servicesDesc {
             font-size: 18px;
             font-weight: 400;
             line-height: 24px;
             color: $grayLight;
             margin-bottom: 16px;
+
             & + p {
               font-size: 18px;
               font-weight: 400;
@@ -56,11 +61,14 @@ main {
             }
           }
         }
+
         .servicesRight {
           max-width: 648px;
+          width: 100%;
           display: flex;
           flex-direction: column;
           gap: 24px;
+
           .servicesCard {
             display: flex;
             flex-direction: column;
@@ -75,6 +83,7 @@ main {
               font-size: 24px;
               font-weight: 500;
             }
+
             .cardDesc {
               font-size: 16px;
               font-weight: 400;
@@ -86,8 +95,135 @@ main {
               transition: all 0.3s ease;
               border-left: 5px solid $purple;
               padding-left: 27px;
-            box-shadow: 0px 32px 96px 0px rgba(28, 25, 25, 0.16);
+              box-shadow: 0px 32px 96px 0px rgba(28, 25, 25, 0.16);
+            }
+          }
+        }
+      }
+    }
+  }
 
+  // Media Queries for different screen sizes
+  @media (max-width: 1200px) {
+    .services {
+      .container {
+        .servicesContent {
+          .servicesLeft {
+            .servicesTitle {
+              font-size: 42px;
+              margin-bottom: 20px;
+            }
+
+            .servicesDesc {
+              font-size: 16px;
+            }
+
+            .servicesBtn {
+              a {
+                padding: 10px 20px;
+              }
+            }
+          }
+
+          .servicesRight {
+            .servicesCard {
+              width: 48%; // Two cards per row
+              margin-bottom: 20px;
+              
+              .cardTitle {
+                font-size: 20px;
+              }
+
+              .cardDesc {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services {
+      .container {
+        .servicesContent {
+          flex-direction: column;
+          align-items: center;
+
+          .servicesLeft {
+            text-align: center;
+
+            .servicesTitle {
+              font-size: 36px;
+              margin-bottom: 16px;
+            }
+
+            .servicesDesc {
+              font-size: 14px;
+            }
+
+            .servicesBtn {
+              a {
+                padding: 8px 16px;
+              }
+            }
+          }
+
+          .servicesRight {
+            .servicesCard {
+              width: 80%;  // Full width for smaller screens
+              margin-bottom: 16px;
+
+              .cardTitle {
+                font-size: 18px;
+              }
+
+              .cardDesc {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 300px) {
+    .services {
+      .container {
+        .servicesContent {
+          .servicesLeft {
+            
+            .servicesTitle {
+              font-size: 28px;
+              margin-bottom: 12px;
+            }
+
+            .servicesDesc {
+              font-size: 12px;
+            }
+
+            .servicesBtn {
+              margin: 0 auto;
+              a {
+                padding: 6px 12px;
+              }
+            }
+          }
+
+          .servicesRight {
+            .servicesCard {
+              width: 100%;  // Stack the cards vertically
+              margin-bottom: 12px;
+
+              .cardTitle {
+                font-size: 14px;
+              }
+
+              .cardDesc {
+                font-size: 10px;
+              }
             }
           }
         }

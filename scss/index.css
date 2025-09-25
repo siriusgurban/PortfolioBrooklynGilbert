@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   margin: 0;
@@ -29,6 +30,9 @@ html {
     width: 94%;
     max-width: 1320px;
   }
+}
+.container {
+  /* Burger Menü – Standard versteckt */
 }
 .container .headerNav {
   display: flex;
@@ -66,7 +70,6 @@ html {
 }
 .container .nav .navList .navItem a:hover {
   color: #8431cc;
-  transition: color 0.3s ease;
 }
 .container .nav .navList .navItem:last-child {
   border-radius: 4px;
@@ -74,13 +77,102 @@ html {
 }
 .container .nav .navList .navItem:last-child a {
   color: #ffffff;
-  transition: color 0.3s ease;
 }
 .container .nav .navList .navItem:last-child a:hover {
-  transition: color 0.3s ease;
   color: rgb(51, 51, 51);
 }
+.container .burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+}
+.container .burger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: rgb(51, 51, 51);
+  border-radius: 2px;
+}
 
+/* 💻 Desktop – max 1200px */
+@media (max-width: 1200px) {
+  .container .headerNav {
+    height: 80px;
+  }
+  .container .headerNav .headerLogo span {
+    font-size: 28px;
+  }
+  .container .nav .navList .navItem {
+    padding: 10px 16px;
+  }
+}
+/* 📱 Tablet – max 768px */
+@media (max-width: 768px) {
+  .container .headerNav {
+    padding: 0 16px;
+  }
+  .container .headerNav .headerLogo img {
+    width: 48px;
+    height: 48px;
+  }
+  .container .headerNav .headerLogo span {
+    font-size: 22px;
+  }
+  .container .nav {
+    display: none;
+  }
+  .container .burger {
+    display: flex;
+  }
+  /* Mobile Menü */
+  .mobileMenu {
+    position: absolute;
+    top: 96px;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .mobileMenu a {
+    font-size: 16px;
+    color: rgb(51, 51, 51);
+    text-decoration: none;
+  }
+  .mobileMenu a:hover {
+    color: #8431cc;
+  }
+}
+/* 📱 Extra Small – max 300px */
+@media (max-width: 300px) {
+  .container .headerNav {
+    height: 70px;
+  }
+  .container .headerNav .headerLogo img {
+    width: 40px;
+    height: 40px;
+  }
+  .container .headerNav .headerLogo span {
+    font-size: 18px;
+  }
+  .container .burger {
+    width: 22px;
+    height: 16px;
+  }
+  .mobileMenu {
+    gap: 12px;
+  }
+  .mobileMenu a {
+    font-size: 14px;
+  }
+}
 main .hero {
   background: linear-gradient(181.93deg, rgba(255, 234, 198, 0.2), rgba(255, 234, 198, 0.14) 100%, rgba(255, 234, 198, 0.13) 100%);
   padding-top: 126px;
@@ -165,6 +257,102 @@ main .hero .heroContent .heroRight img {
   width: 536px;
 }
 
+/* 💻 Desktop – max 1200px */
+@media (max-width: 1200px) {
+  main .hero {
+    padding-bottom: 160px;
+  }
+  main .hero .heroContent .heroLeft {
+    max-width: 500px;
+  }
+  main .hero .heroContent .heroLeft .heroLeftContent .heroTitle {
+    font-size: 56px;
+    line-height: 68px;
+  }
+  main .hero .heroContent .heroLeft .heroLeftContent .heroDesc {
+    font-size: 16px;
+  }
+  main .hero .heroContent .heroLeft .heroLeftContent .heroBtn {
+    width: auto;
+  }
+  main .hero .heroContent .heroLeft .heroStats .heroStat h4 {
+    font-size: 28px;
+  }
+  main .hero .heroContent .heroRight img {
+    width: 420px;
+  }
+}
+/* 📱 Tablet – max 768px */
+@media (max-width: 768px) {
+  main .hero {
+    padding: 20px 20px;
+  }
+  main .hero .heroContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+  main .hero .heroContent .heroLeft {
+    gap: 60px;
+  }
+  main .hero .heroContent .heroLeft .heroLeftContent .heroTitle {
+    font-size: 42px;
+    line-height: 54px;
+  }
+  main .hero .heroContent .heroLeft .heroLeftContent .heroDesc {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  main .hero .heroContent .heroLeft .heroLeftContent .heroBtn {
+    width: 50%;
+    margin: 0 auto;
+  }
+  main .hero .heroContent .heroLeft .heroStats {
+    flex-direction: column;
+    gap: 16px;
+  }
+  main .hero .heroContent .heroLeft .heroStats .heroStat {
+    width: 100%;
+  }
+  main .hero .heroContent .heroRight {
+    display: none;
+  }
+  main .hero .heroContent .heroRight img {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+/* 📱 Extra Small – max 300px */
+@media (max-width: 300px) {
+  main .hero {
+    padding: 20px 10px;
+  }
+  main .hero .heroContent .heroLeft .heroLeftContent .heroTitle {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  main .hero .heroContent .heroLeft .heroLeftContent .heroDesc {
+    font-size: 14px;
+  }
+  main .hero .heroContent .heroLeft .heroLeftContent .heroBtn {
+    width: 100%;
+    padding: 10px;
+  }
+  main .hero .heroContent .heroLeft .heroStats .heroStat h4 {
+    font-size: 20px;
+  }
+  main .hero .heroContent .heroLeft .heroStats .heroStat span {
+    font-size: 12px;
+  }
+  main .hero .heroContent .heroRight {
+    display: none;
+  }
+  main .hero .heroContent .heroRight img {
+    width: 100%;
+    max-width: 240px;
+  }
+}
 main .about {
   position: relative;
   top: 112px;
@@ -263,6 +451,74 @@ main .about .container .aboutContent .aboutRight .aboutBtn a:last-child:hover {
   transition: all 0.3s ease;
 }
 
+/* ✅ Responsive Styles */
+/* --- Medium screens (max 1200px) --- */
+@media (max-width: 1200px) {
+  main .about .container .aboutContent {
+    padding: 64px;
+    gap: 32px;
+  }
+  main .about .container .aboutContent .aboutLeft .aboutSocial {
+    display: none;
+  }
+  main .about .aboutRight .aboutTitle {
+    font-size: 32px;
+    line-height: 42px;
+  }
+}
+/* --- Tablets (max 768px) --- */
+@media (max-width: 768px) {
+  main .about .container .aboutContent {
+    flex-direction: column;
+    align-items: center;
+    padding: 48px;
+    text-align: center;
+  }
+  main .about .aboutLeft {
+    max-width: 300px;
+  }
+  main .about .aboutLeft .aboutSocial {
+    display: none;
+  }
+  main .about .aboutRight {
+    max-width: 100%;
+    gap: 24px;
+  }
+  main .about .aboutRight .aboutTitle {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  main .about .aboutRight .aboutText {
+    font-size: 16px;
+  }
+  main .about .aboutRight .aboutBtn {
+    justify-content: center;
+  }
+}
+/* --- Small screens / Phones (max 300px) --- */
+@media (max-width: 300px) {
+  main .about .container .aboutContent {
+    padding: 24px;
+  }
+  main .about .container .aboutContent .aboutLeft .aboutSocial {
+    display: none;
+  }
+  main .about .aboutRight .aboutTitle {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  main .about .aboutRight .aboutText {
+    font-size: 14px;
+  }
+  main .about .aboutRight .aboutBtn {
+    flex-direction: column;
+    gap: 12px;
+  }
+  main .about .aboutRight .aboutBtn a {
+    width: 100%;
+    text-align: center;
+  }
+}
 main .process {
   padding: 252px 0 140px 0;
   background-color: rgb(240, 241, 243);
@@ -271,6 +527,7 @@ main .process .container .processContent {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 main .process .container .processContent .processLeft {
   max-width: 529px;
@@ -348,6 +605,83 @@ main .process .container .processContent .processRight .processItem div p {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
+}
+@media (max-width: 1200px) {
+  main .process .container .processContent .processLeft .processTitle {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+  main .process .container .processContent .processLeft .processDesc {
+    font-size: 16px;
+  }
+  main .process .container .processContent .processRight .processItem {
+    width: 45%;
+    margin-bottom: 20px;
+  }
+  main .process .container .processContent .processRight .processItem div {
+    gap: 10px;
+  }
+  main .process .container .processContent .processRight .processItem div h5 {
+    font-size: 18px;
+  }
+  main .process .container .processContent .processRight .processItem div p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  main .process .container .processContent {
+    flex-direction: column;
+    align-items: center;
+  }
+  main .process .container .processContent .processLeft {
+    text-align: center;
+  }
+  main .process .container .processContent .processLeft .processTitle {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  main .process .container .processContent .processLeft .processDesc {
+    font-size: 14px;
+  }
+  main .process .container .processContent .processRight {
+    flex-direction: column;
+    align-items: center;
+  }
+  main .process .container .processContent .processRight .processItem {
+    width: 80%;
+    margin-bottom: 16px;
+  }
+  main .process .container .processContent .processRight .processItem div {
+    gap: 8px;
+  }
+  main .process .container .processContent .processRight .processItem div h5 {
+    font-size: 16px;
+  }
+  main .process .container .processContent .processRight .processItem div p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 300px) {
+  main .process .container .processContent .processLeft .processTitle {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  main .process .container .processContent .processLeft .processDesc {
+    font-size: 12px;
+  }
+  main .process .container .processContent .processRight .processItem {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  main .process .container .processContent .processRight .processItem div {
+    gap: 6px;
+  }
+  main .process .container .processContent .processRight .processItem div h5 {
+    font-size: 14px;
+  }
+  main .process .container .processContent .processRight .processItem div p {
+    font-size: 10px;
+  }
 }
 
 main .portfolio {
@@ -456,6 +790,85 @@ main .portfolio .container .portfolioBtn div:hover {
   color: #8431cc;
   transition: all 0.3s ease;
 }
+@media (max-width: 1200px) {
+  main .portfolio .container .portfolioHeader .portfolioTitle {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+  main .portfolio .container .portfolioHeader .portfolioDesc {
+    font-size: 16px;
+  }
+  main .portfolio .container .portfolioContent .portfolioCard {
+    width: 48%;
+    margin-bottom: 20px;
+  }
+  main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo {
+    padding: 24px;
+  }
+  main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo .cardTitle {
+    font-size: 16px;
+  }
+  main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo .cardDesc {
+    font-size: 12px;
+  }
+  main .portfolio .container .portfolioBtn div {
+    padding: 10px 20px;
+  }
+}
+@media (max-width: 768px) {
+  main .portfolio .container .portfolioHeader .portfolioTitle {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  main .portfolio .container .portfolioHeader .portfolioDesc {
+    font-size: 14px;
+  }
+  main .portfolio .container .portfolioContent {
+    flex-direction: column;
+    align-items: center;
+  }
+  main .portfolio .container .portfolioContent .portfolioCard {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo {
+    padding: 16px;
+  }
+  main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo .cardTitle {
+    font-size: 14px;
+  }
+  main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo .cardDesc {
+    font-size: 12px;
+  }
+  main .portfolio .container .portfolioBtn div {
+    padding: 8px 16px;
+  }
+}
+@media (max-width: 300px) {
+  main .portfolio .container .portfolioHeader .portfolioTitle {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  main .portfolio .container .portfolioHeader .portfolioDesc {
+    font-size: 12px;
+  }
+  main .portfolio .container .portfolioContent .portfolioCard {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo {
+    padding: 12px;
+  }
+  main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo .cardTitle {
+    font-size: 12px;
+  }
+  main .portfolio .container .portfolioContent .portfolioCard .portfolioCardInfo .cardDesc {
+    font-size: 10px;
+  }
+  main .portfolio .container .portfolioBtn div {
+    padding: 6px 12px;
+  }
+}
 
 main .idea {
   background-color: rgb(19, 34, 56);
@@ -497,6 +910,66 @@ main .idea .ideaHeader .ideaBtn a:hover {
   transition: all 0.3s ease;
 }
 
+/* 💻 Desktop – max 1200px */
+@media (max-width: 1200px) {
+  .idea {
+    padding: 80px 0;
+  }
+  .idea .ideaHeader {
+    max-width: 500px;
+  }
+  .idea .ideaHeader .ideaTitle {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .idea .ideaHeader .ideaDesc {
+    font-size: 16px;
+  }
+}
+/* 📱 Tablet – max 768px */
+@media (max-width: 768px) {
+  .idea {
+    padding: 60px 20px;
+  }
+  .idea .ideaHeader {
+    gap: 24px;
+  }
+  .idea .ideaHeader .ideaTitle {
+    font-size: 32px;
+    line-height: 42px;
+  }
+  .idea .ideaHeader .ideaDesc {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  .idea .ideaHeader .ideaBtn a {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+/* 📱 Extra Small – max 300px */
+@media (max-width: 300px) {
+  .idea {
+    padding: 40px 10px;
+  }
+  .idea .ideaHeader {
+    gap: 20px;
+  }
+  .idea .ideaHeader .ideaTitle {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .idea .ideaHeader .ideaDesc {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .idea .ideaHeader .ideaBtn a {
+    display: block;
+    width: 100%;
+    font-size: 13px;
+    padding: 8px;
+  }
+}
 main .blog {
   padding: 100px 0;
   background: linear-gradient(181.93deg, rgba(255, 234, 198, 0.2), rgba(255, 234, 198, 0.14) 100%, rgba(255, 234, 198, 0.13) 100%);
@@ -558,6 +1031,71 @@ main .blog .container .blogContent .blogCard .blogCardInfo .cardTitle {
   color: rgb(51, 51, 51);
 }
 
+/* ✅ Responsive Styles */
+/* --- Medium screens (max 1200px) --- */
+@media (max-width: 1200px) {
+  .blog .blogHeader .blogTitle {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .blog .blogContent {
+    justify-content: center;
+    gap: 32px;
+  }
+}
+/* --- Tablets (max 768px) --- */
+@media (max-width: 768px) {
+  .blog {
+    padding: 64px 0;
+  }
+  .blog .blogHeader {
+    margin-bottom: 48px;
+  }
+  .blog .blogHeader .blogTitle {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .blog .blogHeader .blogDesc {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .blog .blogContent {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .blog .blogContent .blogCard {
+    max-width: 100%;
+  }
+}
+/* --- Small screens / Phones (max 300px) --- */
+@media (max-width: 300px) {
+  .blog {
+    padding: 40px 0;
+  }
+  .blog .blogHeader .blogTitle {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .blog .blogHeader .blogDesc {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .blog .blogContent {
+    gap: 16px;
+  }
+  .blog .blogContent .blogCard .blogCardInfo {
+    padding: 16px;
+  }
+  .blog .blogContent .blogCard .blogCardInfo .cardInfo {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .blog .blogContent .blogCard .blogCardInfo .cardTitle {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
 main .services {
   padding: 150px 0;
   background-color: rgb(240, 241, 243);
@@ -566,9 +1104,11 @@ main .services .container .servicesContent {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 main .services .container .servicesContent .servicesLeft {
   max-width: 529px;
+  width: 100%;
 }
 main .services .container .servicesContent .servicesLeft .servicesTitle {
   font-size: 48px;
@@ -611,6 +1151,7 @@ main .services .container .servicesContent .servicesLeft .servicesBtn a:hover {
 }
 main .services .container .servicesContent .servicesRight {
   max-width: 648px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -640,6 +1181,82 @@ main .services .container .servicesContent .servicesRight .servicesCard:hover {
   border-left: 5px solid #8431cc;
   padding-left: 27px;
   box-shadow: 0px 32px 96px 0px rgba(28, 25, 25, 0.16);
+}
+@media (max-width: 1200px) {
+  main .services .container .servicesContent .servicesLeft .servicesTitle {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+  main .services .container .servicesContent .servicesLeft .servicesDesc {
+    font-size: 16px;
+  }
+  main .services .container .servicesContent .servicesLeft .servicesBtn a {
+    padding: 10px 20px;
+  }
+  main .services .container .servicesContent .servicesRight .servicesCard {
+    width: 48%;
+    margin-bottom: 20px;
+  }
+  main .services .container .servicesContent .servicesRight .servicesCard .cardTitle {
+    font-size: 20px;
+  }
+  main .services .container .servicesContent .servicesRight .servicesCard .cardDesc {
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  main .services .container .servicesContent {
+    flex-direction: column;
+    align-items: center;
+  }
+  main .services .container .servicesContent .servicesLeft {
+    text-align: center;
+  }
+  main .services .container .servicesContent .servicesLeft .servicesTitle {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  main .services .container .servicesContent .servicesLeft .servicesDesc {
+    font-size: 14px;
+  }
+  main .services .container .servicesContent .servicesLeft .servicesBtn a {
+    padding: 8px 16px;
+  }
+  main .services .container .servicesContent .servicesRight .servicesCard {
+    width: 80%;
+    margin-bottom: 16px;
+  }
+  main .services .container .servicesContent .servicesRight .servicesCard .cardTitle {
+    font-size: 18px;
+  }
+  main .services .container .servicesContent .servicesRight .servicesCard .cardDesc {
+    font-size: 12px;
+  }
+}
+@media (max-width: 300px) {
+  main .services .container .servicesContent .servicesLeft .servicesTitle {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  main .services .container .servicesContent .servicesLeft .servicesDesc {
+    font-size: 12px;
+  }
+  main .services .container .servicesContent .servicesLeft .servicesBtn {
+    margin: 0 auto;
+  }
+  main .services .container .servicesContent .servicesLeft .servicesBtn a {
+    padding: 6px 12px;
+  }
+  main .services .container .servicesContent .servicesRight .servicesCard {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  main .services .container .servicesContent .servicesRight .servicesCard .cardTitle {
+    font-size: 14px;
+  }
+  main .services .container .servicesContent .servicesRight .servicesCard .cardDesc {
+    font-size: 10px;
+  }
 }
 
 main .clients {
@@ -676,6 +1293,59 @@ main .clients .clientsContent .clientsCard:hover {
   cursor: pointer;
 }
 
+/* ✅ Responsive Styles */
+/* --- Medium screens (max 1200px) --- */
+@media (max-width: 1200px) {
+  .clients .clientsHeader .clientsTitle {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .clients .clientsContent {
+    justify-content: center;
+    gap: 32px;
+  }
+}
+/* --- Tablets (max 768px) --- */
+@media (max-width: 768px) {
+  .clients {
+    padding: 64px 0;
+  }
+  .clients .clientsHeader {
+    margin-bottom: 48px;
+  }
+  .clients .clientsHeader .clientsTitle {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .clients .clientsHeader .clientsDesc {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .clients .clientsContent {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+}
+/* --- Small screens / Phones (max 300px) --- */
+@media (max-width: 300px) {
+  .clients {
+    padding: 40px 0;
+  }
+  .clients .clientsHeader .clientsTitle {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .clients .clientsHeader .clientsDesc {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .clients .clientsContent {
+    width: 70%;
+    margin: 0 auto;
+    gap: 16px;
+  }
+}
 main .testimonial {
   padding: 0 0 100px 0;
 }
@@ -702,6 +1372,7 @@ main .testimonial .container .testimonialContent {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 main .testimonial .container .testimonialContent .testimonialCard {
   max-width: 872px;
@@ -727,6 +1398,75 @@ main .testimonial .container .testimonialContent .testimonialCard .cardCompany {
   line-height: 24px;
   color: rgb(0, 0, 0);
 }
+@media (max-width: 1200px) {
+  main .testimonial .container .testimonialHeader .testimonialTitle {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+  main .testimonial .container .testimonialHeader .testimonialDesc {
+    font-size: 16px;
+  }
+  main .testimonial .container .testimonialContent .testimonialCard {
+    max-width: 48%;
+    margin-bottom: 40px;
+  }
+  main .testimonial .container .testimonialContent .testimonialCard .cardDesc {
+    font-size: 16px;
+  }
+  main .testimonial .container .testimonialContent .testimonialCard .cardName {
+    font-size: 16px;
+  }
+  main .testimonial .container .testimonialContent .testimonialCard .cardCompany {
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  main .testimonial .container .testimonialHeader .testimonialTitle {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  main .testimonial .container .testimonialHeader .testimonialDesc {
+    font-size: 14px;
+  }
+  main .testimonial .container .testimonialContent {
+    flex-direction: column;
+    align-items: center;
+  }
+  main .testimonial .container .testimonialContent .testimonialCard {
+    max-width: 80%;
+    margin-bottom: 24px;
+  }
+  main .testimonial .container .testimonialContent .testimonialCard .cardDesc {
+    font-size: 14px;
+  }
+  main .testimonial .container .testimonialContent .testimonialCard .cardName {
+    font-size: 14px;
+  }
+  main .testimonial .container .testimonialContent .testimonialCard .cardCompany {
+    font-size: 12px;
+  }
+}
+@media (max-width: 300px) {
+  main .testimonial .container .testimonialHeader .testimonialTitle {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  main .testimonial .container .testimonialHeader .testimonialDesc {
+    font-size: 12px;
+  }
+  main .testimonial .container .testimonialContent .testimonialCard {
+    max-width: 100%;
+  }
+  main .testimonial .container .testimonialContent .testimonialCard .cardDesc {
+    font-size: 12px;
+  }
+  main .testimonial .container .testimonialContent .testimonialCard .cardName {
+    font-size: 12px;
+  }
+  main .testimonial .container .testimonialContent .testimonialCard .cardCompany {
+    font-size: 10px;
+  }
+}
 
 main .contact {
   position: relative;
@@ -739,6 +1479,7 @@ main .contact .container .contactContent {
   border-radius: 15px;
   box-shadow: 0px 59px 124px 0px rgba(0, 0, 0, 0.12);
   background-color: #ffffff;
+  flex-wrap: wrap;
 }
 main .contact .container .contactContent .contactLeft {
   max-width: 480px;
@@ -817,7 +1558,6 @@ main .contact .container .contactContent .contactLeft .contactBox .aboutSocial {
   background-color: #ffffff;
   border-radius: 4px;
   box-shadow: 0px 12px 64px 0px rgba(28, 25, 25, 0.12);
-  background-color: rgb(255, 255, 255);
   display: flex;
 }
 main .contact .container .contactContent .contactLeft .contactBox .aboutSocial li {
@@ -827,7 +1567,6 @@ main .contact .container .contactContent .contactLeft .contactBox .aboutSocial l
 }
 main .contact .container .contactContent .contactLeft .contactBox .aboutSocial li:hover {
   filter: invert(10%);
-  transition: all 0.3s ease;
 }
 main .contact .container .contactContent .contactRight {
   max-width: 560px;
@@ -903,44 +1642,212 @@ main .contact .container .contactContent .contactRight form button:hover {
   color: #8431cc;
   transition: all 0.3s ease;
 }
-
-.footer {
-  padding: 192px 0 82px 0;
-  background-color: rgb(43, 56, 76);
+@media (max-width: 1200px) {
+  main .contact .container .contactContent {
+    padding: 60px;
+    flex-direction: column;
+  }
+  main .contact .container .contactContent .contactLeft {
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+  main .contact .container .contactContent .contactLeft .contactTitle {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  main .contact .container .contactContent .contactLeft .contactDesc {
+    font-size: 16px;
+  }
+  main .contact .container .contactContent .contactLeft .contactBox .contactCard {
+    max-width: 100%;
+  }
+  main .contact .container .contactContent .contactRight {
+    max-width: 100%;
+  }
+  main .contact .container .contactContent .contactRight p {
+    font-size: 16px;
+  }
+  main .contact .container .contactContent .contactRight form {
+    gap: 16px;
+  }
+  main .contact .container .contactContent .contactRight form button {
+    width: 100%;
+  }
 }
-.footer .container .footerContent {
+@media (max-width: 768px) {
+  main .contact .container .contactContent {
+    padding: 40px;
+    flex-direction: column;
+  }
+  main .contact .container .contactContent .contactLeft .contactTitle {
+    font-size: 28px;
+  }
+  main .contact .container .contactContent .contactLeft .contactDesc {
+    font-size: 14px;
+  }
+  main .contact .container .contactContent .contactLeft .contactBox .contactCard {
+    max-width: 100%;
+  }
+  main .contact .container .contactContent .contactRight p {
+    font-size: 14px;
+  }
+  main .contact .container .contactContent .contactRight form {
+    gap: 12px;
+  }
+  main .contact .container .contactContent .contactRight form input,
+  main .contact .container .contactContent .contactRight form textarea {
+    font-size: 14px;
+  }
+  main .contact .container .contactContent .contactRight form button {
+    width: 100%;
+  }
+}
+@media (max-width: 300px) {
+  main .contact .container .contactContent {
+    padding: 20px;
+  }
+  main .contact .container .contactContent .contactLeft .contactTitle {
+    font-size: 24px;
+  }
+  main .contact .container .contactContent .contactLeft .contactDesc {
+    font-size: 12px;
+  }
+  main .contact .container .contactContent .contactLeft .contactBox .contactCard {
+    max-width: 100%;
+  }
+  main .contact .container .contactContent .contactRight p {
+    font-size: 12px;
+  }
+  main .contact .container .contactContent .contactRight form {
+    gap: 8px;
+  }
+  main .contact .container .contactContent .contactRight form input,
+  main .contact .container .contactContent .contactRight form textarea {
+    font-size: 12px;
+  }
+  main .contact .container .contactContent .contactRight form button {
+    width: 100%;
+  }
+}
+
+footer {
+  background-color: #ffffff;
+  padding: 60px 88px;
+  box-shadow: 0px -10px 64px rgba(0, 0, 0, 0.08);
+}
+footer .footerContent {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
-  height: 96px;
+  align-items: flex-start;
+  gap: 40px;
 }
-.footer .container .footerContent .footerLogo {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-  cursor: pointer;
+footer .footerContent .footerLeft {
+  max-width: 400px;
 }
-.footer .container .footerContent .footerLogo img {
-  width: 56px;
-  height: 56px;
+footer .footerContent .footerLeft .footerTitle {
+  font-size: 28px;
+  font-weight: 600;
+  color: rgb(19, 34, 56);
+  margin-bottom: 16px;
 }
-.footer .container .footerContent .footerLogo span {
-  color: rgb(255, 255, 255);
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 40px;
-}
-.footer .container .footerContent .nav .navList .navItem a {
-  color: rgb(240, 241, 243);
-}
-.footer .container .footerContent .nav .navList .navItem:last-child {
-  background-color: transparent;
-}
-.footer .container .footerContent .copyright {
-  color: rgb(255, 255, 255);
+footer .footerContent .footerLeft .footerDesc {
   font-size: 16px;
-  font-weight: 400;
+  color: rgb(135, 144, 157);
   line-height: 24px;
+}
+footer .footerContent .footerLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+footer .footerContent .footerLinks a {
+  font-size: 16px;
+  color: rgb(19, 34, 56);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+footer .footerContent .footerLinks a:hover {
+  color: #8431cc;
+}
+footer .footerContent .footerSocial {
+  display: flex;
+  gap: 12px;
+}
+footer .footerContent .footerSocial li {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+footer .footerContent .footerSocial li:hover {
+  background: #8431cc;
+}
+footer .footerContent .footerSocial li:hover i {
+  color: #ffffff;
+}
+footer .footerContent .footerSocial li i {
+  font-size: 18px;
+  color: rgb(19, 34, 56);
+}
+
+/* 📱 Responsive Breakpoints */
+@media (max-width: 1200px) {
+  footer {
+    padding: 120px 40px;
+  }
+  footer .footerContent {
+    gap: 20px;
+  }
+  footer .footerContent .footerLeft {
+    max-width: 350px;
+  }
+  footer .footerContent .footerLeft .footerTitle {
+    font-size: 24px;
+  }
+}
+@media (max-width: 768px) {
+  footer {
+    padding: 120px 20px;
+  }
+  footer .footerContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+  footer .footerContent .footerLeft {
+    max-width: 100%;
+  }
+  footer .footerContent .footerLinks {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media (max-width: 300px) {
+  footer {
+    padding: 80px 10px;
+  }
+  footer .footerContent {
+    gap: 20px;
+  }
+  footer .footerContent .footerTitle {
+    font-size: 18px;
+  }
+  footer .footerContent .footerDesc,
+  footer .footerContent .footerLinks a {
+    font-size: 14px;
+  }
+  footer .footerContent .footerSocial li {
+    width: 32px;
+    height: 32px;
+  }
+  footer .footerContent .footerSocial li i {
+    font-size: 14px;
+  }
 }/*# sourceMappingURL=index.css.map */

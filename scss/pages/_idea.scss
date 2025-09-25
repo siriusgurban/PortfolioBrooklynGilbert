@@ -4,6 +4,7 @@ main {
   .idea {
     background-color: $blue;
     padding: 100px 0;
+
     .ideaHeader {
       display: flex;
       flex-direction: column;
@@ -11,6 +12,7 @@ main {
       max-width: 620px;
       margin: 0 auto;
       text-align: center;
+
       .ideaTitle {
         font-size: 48px;
         font-weight: 400;
@@ -42,6 +44,80 @@ main {
             transition: all 0.3s ease;
           }
         }
+      }
+    }
+  }
+}
+
+/* 💻 Desktop – max 1200px */
+@media (max-width: 1200px) {
+  .idea {
+    padding: 80px 0;
+
+    .ideaHeader {
+      max-width: 500px;
+
+      .ideaTitle {
+        font-size: 40px;
+        line-height: 50px;
+      }
+
+      .ideaDesc {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+/* 📱 Tablet – max 768px */
+@media (max-width: 768px) {
+  .idea {
+    padding: 60px 20px;
+
+    .ideaHeader {
+      gap: 24px;
+
+      .ideaTitle {
+        font-size: 32px;
+        line-height: 42px;
+      }
+
+      .ideaDesc {
+        font-size: 15px;
+        line-height: 22px;
+      }
+
+      .ideaBtn a {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+/* 📱 Extra Small – max 300px */
+@media (max-width: 300px) {
+  .idea {
+    padding: 40px 10px;
+
+    .ideaHeader {
+      gap: 20px;
+
+      .ideaTitle {
+        font-size: 24px;
+        line-height: 32px;
+      }
+
+      .ideaDesc {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      .ideaBtn a {
+        display: block;
+        width: 100%;
+        font-size: 13px;
+        padding: 8px;
       }
     }
   }

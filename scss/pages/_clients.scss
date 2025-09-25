@@ -3,12 +3,14 @@
 main {
   .clients {
     padding: 100px 0;
+
     .container {
       .clientsHeader {
         max-width: 577px;
         margin: 0 auto 70px auto;
         text-align: center;
         margin-bottom: 24px;
+
         .clientsTitle {
           font-size: 48px;
           font-weight: 400;
@@ -16,6 +18,7 @@ main {
           color: $blackLighter;
           margin-bottom: 24px;
         }
+
         .clientsDesc {
           font-size: 18px;
           font-weight: 400;
@@ -29,7 +32,7 @@ main {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-              transition: all 0.3s ease;
+      transition: all 0.3s ease;
 
       .clientsCard:hover {
         transition: all 0.3s ease;
@@ -37,5 +40,72 @@ main {
         cursor: pointer;
       }
     }
+  }
+}
+
+/* ✅ Responsive Styles */
+
+/* --- Medium screens (max 1200px) --- */
+@media (max-width: 1200px) {
+  .clients .clientsHeader .clientsTitle {
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .clients .clientsContent {
+    justify-content: center;
+    gap: 32px;
+  }
+}
+
+/* --- Tablets (max 768px) --- */
+@media (max-width: 768px) {
+  .clients {
+    padding: 64px 0;
+  }
+
+  .clients .clientsHeader {
+    margin-bottom: 48px;
+
+    .clientsTitle {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    .clientsDesc {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  .clients .clientsContent {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+/* --- Small screens / Phones (max 300px) --- */
+@media (max-width: 300px) {
+  .clients {
+    padding: 40px 0;
+  }
+
+  .clients .clientsHeader {
+    .clientsTitle {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    .clientsDesc {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  .clients .clientsContent {
+    width: 70%;
+    margin: 0 auto;
+    gap: 16px;
   }
 }

@@ -7,15 +7,18 @@
     align-items: center;
     height: 96px;
     background-color: $white;
+
     .headerLogo {
       display: flex;
       gap: 12px;
       align-items: center;
       cursor: pointer;
+
       img {
         width: 56px;
         height: 56px;
       }
+
       span {
         color: $blackLighter;
         font-size: 32px;
@@ -28,8 +31,10 @@
   .nav {
     .navList {
       display: flex;
+
       .navItem {
         padding: 12px 24px;
+
         a {
           cursor: pointer;
           color: $blackLight;
@@ -37,23 +42,139 @@
 
           &:hover {
             color: $purple;
-            transition: color 0.3s ease;
           }
         }
 
         &:last-child {
           border-radius: 4px;
           background-color: $purple;
+
           a {
             color: $white;
-            transition: color 0.3s ease;
+
             &:hover {
-              transition: color 0.3s ease;
               color: $blackLight;
             }
           }
         }
       }
+    }
+  }
+
+  /* Burger Menü – Standard versteckt */
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+
+    span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: $blackLight;
+      border-radius: 2px;
+    }
+  }
+}
+
+/* 💻 Desktop – max 1200px */
+@media (max-width: 1200px) {
+  .container {
+    .headerNav {
+      height: 80px;
+
+      .headerLogo span {
+        font-size: 28px;
+      }
+    }
+
+    .nav .navList .navItem {
+      padding: 10px 16px;
+    }
+  }
+}
+
+/* 📱 Tablet – max 768px */
+@media (max-width: 768px) {
+  .container {
+    .headerNav {
+      padding: 0 16px;
+
+      .headerLogo img {
+        width: 48px;
+        height: 48px;
+      }
+
+      .headerLogo span {
+        font-size: 22px;
+      }
+    }
+
+    .nav {
+      display: none; // Menü verschwindet
+    }
+
+    .burger {
+      display: flex; // Burger sichtbar
+    }
+  }
+
+  /* Mobile Menü */
+  .mobileMenu {
+    position: absolute;
+    top: 96px;
+    left: 0;
+    width: 100%;
+    background: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+
+    a {
+      font-size: 16px;
+      color: $blackLight;
+      text-decoration: none;
+
+      &:hover {
+        color: $purple;
+      }
+    }
+  }
+}
+
+/* 📱 Extra Small – max 300px */
+@media (max-width: 300px) {
+  .container {
+    .headerNav {
+      height: 70px;
+
+      .headerLogo img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .headerLogo span {
+        font-size: 18px;
+      }
+    }
+
+    .burger {
+      width: 22px;
+      height: 16px;
+    }
+  }
+
+  .mobileMenu {
+    gap: 12px;
+
+    a {
+      font-size: 14px;
     }
   }
 }

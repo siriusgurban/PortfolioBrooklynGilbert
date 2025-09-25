@@ -2,17 +2,23 @@
 
 main {
   .hero {
-    background: linear-gradient(181.93deg, rgba(255, 234, 198, 0.2),rgba(255, 234, 198, 0.14) 100%,rgba(255, 234, 198, 0.13) 100%);
+    background: linear-gradient(
+      181.93deg,
+      rgba(255, 234, 198, 0.2),
+      rgba(255, 234, 198, 0.14) 100%,
+      rgba(255, 234, 198, 0.13) 100%
+    );
     padding-top: 126px;
     padding-bottom: 222px;
+
     .heroContent {
       display: flex;
       justify-content: space-between;
       width: 100%;
+
       .heroLeft {
         max-width: 648px;
         gap: 142px;
-
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -62,11 +68,11 @@ main {
             flex-direction: column;
             align-items: center;
             gap: 8px;
-
             background-color: $purupleLighter;
             padding: 17px 0;
             width: 100%;
             border-radius: 4px;
+
             h4 {
               font-size: 32px;
               font-weight: 600;
@@ -83,6 +89,7 @@ main {
           }
         }
       }
+
       .heroRight {
         max-width: 536px;
         width: 100%;
@@ -91,6 +98,146 @@ main {
 
         img {
           width: 536px;
+        }
+      }
+    }
+  }
+}
+
+/* 💻 Desktop – max 1200px */
+@media (max-width: 1200px) {
+  main {
+    .hero {
+      padding-bottom: 160px;
+
+      .heroContent {
+        .heroLeft {
+          max-width: 500px;
+
+          .heroLeftContent {
+            .heroTitle {
+              font-size: 56px;
+              line-height: 68px;
+            }
+
+            .heroDesc {
+              font-size: 16px;
+            }
+
+            .heroBtn {
+              width: auto;
+            }
+          }
+
+          .heroStats .heroStat h4 {
+            font-size: 28px;
+          }
+        }
+
+        .heroRight img {
+          width: 420px;
+        }
+      }
+    }
+  }
+}
+
+/* 📱 Tablet – max 768px */
+@media (max-width: 768px) {
+  main {
+    .hero {
+      padding: 20px 20px;
+
+      .heroContent {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+
+        .heroLeft {
+          gap: 60px;
+
+          .heroLeftContent {
+            .heroTitle {
+              font-size: 42px;
+              line-height: 54px;
+            }
+
+            .heroDesc {
+              font-size: 16px;
+              line-height: 22px;
+            }
+
+            .heroBtn {
+              width: 50%;
+              margin: 0 auto;
+            }
+          }
+
+          .heroStats {
+            flex-direction: column;
+            gap: 16px;
+
+            .heroStat {
+              width: 100%;
+            }
+          }
+        }
+
+        .heroRight {
+          display: none;
+          img {
+            width: 100%;
+            max-width: 280px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 📱 Extra Small – max 300px */
+@media (max-width: 300px) {
+  main {
+    .hero {
+      padding: 20px 10px;
+
+      .heroContent {
+        .heroLeft {
+          .heroLeftContent {
+            .heroTitle {
+              font-size: 20px;
+              line-height: 28px;
+            }
+
+            .heroDesc {
+              font-size: 14px;
+            }
+
+            .heroBtn {
+              width: 100%;
+              padding: 10px;
+            }
+          }
+
+          .heroStats {
+            .heroStat {
+              h4 {
+                font-size: 20px;
+              }
+              span {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+
+        .heroRight {
+          display: none;
+          img {
+            width: 100%;
+            max-width: 240px;
+          }
         }
       }
     }

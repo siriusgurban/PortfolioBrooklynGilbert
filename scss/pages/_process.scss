@@ -4,14 +4,18 @@ main {
   .process {
     padding: 252px 0 140px 0;
     background-color: $grayProcess;
+
     .container {
       .processContent {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
+
         .processLeft {
           max-width: 529px;
           width: 100%;
+          
           .processTitle {
             font-size: 48px;
             font-weight: 400;
@@ -19,6 +23,7 @@ main {
             margin-bottom: 24px;
             color: $blackLighter;
           }
+
           .processDesc {
             font-size: 18px;
             font-weight: 400;
@@ -26,6 +31,7 @@ main {
             margin-bottom: 16px;
             color: $grayLight;
           }
+
           p {
             font-size: 18px;
             font-weight: 400;
@@ -33,6 +39,7 @@ main {
             color: $grayLight;
           }
         }
+
         .processRight {
           max-width: 648px;
           width: 100%;
@@ -60,6 +67,7 @@ main {
                 transition: all 0.3s ease;
               }
             }
+
             .processImage {
               width: 72px;
               height: 72px;
@@ -74,10 +82,12 @@ main {
                 height: 32px;
               }
             }
+
             div {
               display: flex;
               flex-direction: column;
               gap: 12px;
+
               h5 {
                 font-size: 20px;
                 font-weight: 400;
@@ -88,6 +98,129 @@ main {
                 font-size: 16px;
                 font-weight: 400;
                 line-height: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Media Queries for different screen sizes
+  @media (max-width: 1200px) {
+    .process {
+      .container {
+        .processContent {
+          .processLeft {
+            .processTitle {
+              font-size: 42px;
+              margin-bottom: 20px;
+            }
+
+            .processDesc {
+              font-size: 16px;
+            }
+          }
+
+          .processRight {
+            .processItem {
+              width: 45%;  // Adjust for 2 items per row
+              margin-bottom: 20px;
+
+              div {
+                gap: 10px;
+
+                h5 {
+                  font-size: 18px;
+                }
+
+                p {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .process {
+      .container {
+        .processContent {
+          flex-direction: column;
+          align-items: center;
+
+          .processLeft {
+            text-align: center;
+
+            .processTitle {
+              font-size: 36px;
+              margin-bottom: 16px;
+            }
+
+            .processDesc {
+              font-size: 14px;
+            }
+          }
+
+          .processRight {
+            flex-direction: column;
+            align-items: center;
+
+            .processItem {
+              width: 80%;  // Stack items in one column
+              margin-bottom: 16px;
+
+              div {
+                gap: 8px;
+
+                h5 {
+                  font-size: 16px;
+                }
+
+                p {
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 300px) {
+    .process {
+      .container {
+        .processContent {
+          .processLeft {
+            .processTitle {
+              font-size: 28px;
+              margin-bottom: 12px;
+            }
+
+            .processDesc {
+              font-size: 12px;
+            }
+          }
+
+          .processRight {
+            .processItem {
+              width: 100%;  // Stack items in one column
+              margin-bottom: 12px;
+
+              div {
+                gap: 6px;
+
+                h5 {
+                  font-size: 14px;
+                }
+
+                p {
+                  font-size: 10px;
+                }
               }
             }
           }
