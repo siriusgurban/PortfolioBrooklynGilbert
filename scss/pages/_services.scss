@@ -171,6 +171,8 @@ main {
           }
 
           .servicesRight {
+            align-items: center;
+            padding-top: 24px;
             .servicesCard {
               width: 80%;  // Full width for smaller screens
               margin-bottom: 16px;
@@ -205,7 +207,6 @@ main {
             }
 
             .servicesBtn {
-              margin: 0 auto;
               a {
                 padding: 6px 12px;
               }

@@ -1222,6 +1222,10 @@ main .services .container .servicesContent .servicesRight .servicesCard:hover {
   main .services .container .servicesContent .servicesLeft .servicesBtn a {
     padding: 8px 16px;
   }
+  main .services .container .servicesContent .servicesRight {
+    align-items: center;
+    padding-top: 24px;
+  }
   main .services .container .servicesContent .servicesRight .servicesCard {
     width: 80%;
     margin-bottom: 16px;
@@ -1240,9 +1244,6 @@ main .services .container .servicesContent .servicesRight .servicesCard:hover {
   }
   main .services .container .servicesContent .servicesLeft .servicesDesc {
     font-size: 12px;
-  }
-  main .services .container .servicesContent .servicesLeft .servicesBtn {
-    margin: 0 auto;
   }
   main .services .container .servicesContent .servicesLeft .servicesBtn a {
     padding: 6px 12px;
